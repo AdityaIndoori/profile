@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>aindoori-profile - Aditya Indoori's Interactive Profile</title>
+    <meta name="description" content="Interactive profile for Aditya Indoori, a Software Development Engineer II at AWS, showcasing experience in cloud architecture, Java, Spring, React, security, and DevOps.">
+    <meta name="keywords" content="Aditya Indoori, Software Development Engineer, SDE, AWS, Amazon Web Services, Cloud Computing, Java, Spring Boot, React, TypeScript, Security, DevOps, Resume, Profile, Portfolio">
+    <link rel="canonical" href="[YOUR_DEPLOYED_URL_HERE]" /> <!-- Add the canonical URL once deployed -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+    <!-- Schema.org JSON-LD for SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Aditya Indoori",
+      "jobTitle": "Software Development Engineer II",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "Amazon Web Services (AWS)"
+      },
+      "alumniOf": [
+        {
+          "@type": "CollegeOrUniversity",
+          "name": "George Mason University",
+          "description": "Master of Science in Computer Science"
+        },
+        {
+          "@type": "CollegeOrUniversity",
+          "name": "Gokaraju Rangaraju Institute of Engineering and Technology",
+          "description": "Bachelor of Technology in Electronics & Communication Engineering"
+        }
+      ],
+      "knowsAbout": ["Software Engineering", "Cloud Computing", "AWS", "Java", "Spring Boot", "React", "Authentication", "Authorization", "DevOps", "Security"],
+      "url": "[YOUR_DEPLOYED_URL_HERE]", // Replace with actual deployed URL
+      "sameAs": [
+        "https://www.linkedin.com/in/aditya-indoori-a671b7172"
+        // Add other relevant profile URLs if available (e.g., GitHub, personal website)
+      ],
+      "email": "mailto:indooriaditya@gmail.com",
+      "telephone": "+1-571-375-9375"
+    }
+    </script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Aditya Indoori</h1>
+        <p><span id="job-title-typing">Software Development Engineer</span><span class="cursor">&nbsp;</span></p>
+        <nav>
+            <a href="#experience">Experience</a>
+            <a href="#projects">Projects</a>
+            <a href="#skills">Skills</a>
+            <a href="#education">Education</a>
+            <a href="#achievements">Achievements</a>
+            <a href="#contact">Contact</a>
+        </nav>
+        <div class="theme-switch-wrapper">
+            <label class="theme-switch" for="checkbox">
+                <input type="checkbox" id="checkbox" />
+                <div class="slider round"></div>
+            </label>
+            <span>Dark Mode</span>
+        </div>
+    </header>
+
+    <main>
+        <section id="intro" class="intro-section">
+            <h2 class="intro-heading"></h2> <!-- Content will be set by JS -->
+            <!-- Interactive elements will go here -->
+        </section>
+
+        <section id="experience">
+            <h2>Experience</h2>
+            <div class="job">
+                <h3 class="interactive-title">Amazon Web Services (AWS) | Seattle, WA</h3>
+                <p><strong>Software Development Engineer II</strong> (June 2020 - Present)</p>
+                <ul>
+                    <li class="expandable-item">
+                        <span class="summary-text"><span class="icon" aria-label="Cloud icon">☁️</span> Architected & Delivered multi-region Spring AuthN service (Route53, ALB, ECS) achieving 99.95% availability for 36M+ weekly logins.</span>
+                        <div class="detail-text">Led the design, development and delivery of Spring-based containerized multi-region authentication service using AWS Route53 with ALBs in VPC for active-active resilient architecture. The service is deployed on AWS ECS-Fargate for automated container orchestration resulting in 99.95% availability for more than 36 Million weekly AWS Root User logins.</div>
+                    </li>
+                    <li class="expandable-item">
+                        <span class="summary-text"><span class="icon" aria-label="Lightning bolt icon">⚡</span> Optimized AWS SSO login (React SPA, Webpack, S3, CloudFront), reducing latency by 10s (65%) via load testing & caching.</span>
+                        <div class="detail-text">Headed the optimization of AWS SSO login through implementation of a React-based SPA architecture with Webpack code-splitting, asset minification pipeline, AWS S3-hosted static content, and AWS CloudFront edge caching and optimized cache invalidation strategies. Executed load testing with JMeter to identify bottlenecks, resulting in a 10-second latency reduction (65% improvement) for more than 5M weekly SSO Logins.</div>
+                    </li>
+                    <li class="expandable-item">
+                        <span class="summary-text"><span class="icon" aria-label="Teacher icon">🧑‍🏫</span> Mentored 3 junior engineers, improving team dev time by 15% & reducing operational load by 23%.</span>
+                        <div class="detail-text">Mentored 3 junior software engineers on cloud architecture and authentication-authorization standards, reducing team development time by 15% and operational load by 23%.</div>
+                    </li>
+                </ul>
+            </div>
+            <div class="job">
+                <h3 class="interactive-title">Daon Trusted Identity Services | Alexandria, VA</h3>
+                <p><strong>Software Engineer Intern</strong> (Jun 2019 - Aug 2019)</p>
+                <ul>
+                    <li class="expandable-item">
+                        <span class="summary-text"><span class="icon" aria-label="Refresh icon">🔄</span> Migrated legacy Spring service to Spring Boot, improving build time by 1.5 mins.</span>
+                        <div class="detail-text">Migrated legacy Spring based authentication service to Spring Boot, improving service build-time performance by 1.5 minutes and code-maintainability.</div>
+                    </li>
+                    <li class="expandable-item">
+                        <span class="summary-text"><span class="icon" aria-label="Tools icon">🛠️</span> Built REST microservices test framework (TestNG, Mockito), increasing API reliability by 28%.</span>
+                        <div class="detail-text">Architected RESTful microservices test framework with TestNG, Mockito, and parameterized assertions, elevating API reliability and regression coverage by 28%.</div>
+                    </li>
+                </ul>
+            </div>
+            <div class="job">
+                <h3 class="interactive-title">George Mason University | Fairfax, VA</h3>
+                <p><strong>Android Developer</strong> (Aug 2018 - Dec 2018)</p>
+                <ul>
+                    <li class="expandable-item">
+                        <span class="summary-text"><span class="icon" aria-label="Mobile phone icon">📱</span> Developed accessible Android apps (Java, XML, WCAG) with TalkBack & dynamic text, achieving 98% compliance.</span>
+                        <div class="detail-text">Engineered Android applications using Java, XML and Web Content Accessibility Guidelines-compliant frameworks with TalkBack integration and dynamic text scaling. Implemented automated accessibility testing, achieving 98% compliance for WCAG.</div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="projects">
+            <h2>Projects</h2>
+            <div class="project expandable-item">
+                <h3 class="interactive-title summary-text"><span class="icon" aria-label="Shield icon">🛡️</span> Authorized Access To AWS Consoles (2024)</h3>
+                <div class="detail-text">Implemented policy based authorized access to AWS Consoles by treating them as an AWS Resource, providing customers the ability to block public access to consoles based on data perimeters like network ip address.</div>
+            </div>
+            <div class="project expandable-item">
+                <h3 class="interactive-title summary-text"><span class="icon" aria-label="Key icon">🔑</span> Unified Mobile SDK for Authentication (2022)</h3>
+                <div class="detail-text">Created cross-platform SDK implementing asymmetric-encryption, secure-storage, and in-app browser deep-links for seamless user authentication.</div>
+            </div>
+            <div class="project expandable-item">
+                <h3 class="interactive-title summary-text"><span class="icon" aria-label="Car icon">🚗</span> Raspberry Pi Based Biometric Vehicle Ignition Access (2018)</h3>
+                <div class="detail-text">A Raspberry Pi based vehicle security system that controls the ignition of the engine using face recognition, fingerprint recognition and alcohol breath detection.</div>
+            </div>
+        </section>
+
+        <section id="skills">
+            <h2>Skills</h2>
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h3>Languages</h3>
+                    <ul>
+                        <li>Java</li>
+                        <li>JavaScript</li>
+                        <li>TypeScript</li>
+                        <li>Python</li>
+                        <li>C</li>
+                        <li>HTML</li>
+                        <li>CSS</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Frameworks & Libraries</h3>
+                    <ul>
+                        <li>AWS SDK</li>
+                        <li>Spring</li>
+                        <li>React</li>
+                        <li>JUnit</li>
+                        <li>Selenium</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Cloud & DevOps</h3>
+                    <ul>
+                        <li>AWS Services (DynamoDB, VPC, KMS, CloudFront, Route53, ECS, S3, ALB)</li>
+                        <li>Git</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Security</h3>
+                    <ul>
+                        <li>AuthN/AuthZ</li>
+                        <li>SSRF</li>
+                        <li>XSS</li>
+                        <li>Open-Redirect</li>
+                        <li>RCE</li>
+                        <li>SQL Injection</li>
+                    </ul>
+                </div>
+                 <div class="skill-category">
+                    <h3>Tools</h3>
+                    <ul>
+                        <li>Jupyter Notebook</li>
+                        <li>NumPy</li>
+                        <li>Pandas</li>
+                        <li>Android Studio</li>
+                        <li>MATLAB</li>
+                        <li>JMeter</li>
+                        <li>TestNG</li>
+                        <li>Mockito</li>
+                        <li>Webpack</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="education">
+            <h2>Education</h2>
+            <div class="education-item">
+                <h3 class="interactive-title">Master of Science in Computer Science</h3>
+                <p>George Mason University (2018-2020)</p>
+            </div>
+            <div class="education-item">
+                <h3 class="interactive-title">Bachelor of Technology in Electronics & Communication Engineering</h3>
+                <p>Gokaraju Rangaraju Institute of Engineering and Technology (2014-2018)</p>
+            </div>
+        </section>
+
+        <section id="achievements">
+            <h2>Achievements</h2>
+            <ul>
+                <li>Distinguished as delegate to participate in Harvard University's HPair 2024 Conference</li>
+                <li>Featured in eBay Security Hall of Fame for security research.</li>
+                <li>2nd place in Dell's Unbounded Hackathon for innovative cloud solutions.</li>
+                <li>Bug bounty awards in HackerOne for identifying security vulnerabilities like XSS, SSRF & CSRF</li>
+                <li>2nd place for "Patch - Smart Home Repairs" at Tech Starters hackathon, GMU 2018</li>
+            </ul>
+        </section>
+
+        <section id="contact">
+            <h2>Contact</h2>
+            <p>Phone: <a href="tel:+1-571-375-9375">571-375-9375</a></p>
+            <p>Email: <a href="mailto:indooriaditya@gmail.com">indooriaditya@gmail.com</a></p>
+            <p>LinkedIn: <a href="https://www.linkedin.com/in/aditya-indoori-a671b7172" target="_blank" rel="noopener noreferrer">https://www.linkedin.com/in/aditya-indoori-a671b7172</a></p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Aditya Indoori</p>
+    </footer>
+
+    <script src="script.js"></script>
+
+    <div id="notification-area"></div>
+</body>
+</html>

@@ -1,0 +1,580 @@
+:root {
+    /* Light Theme (Previous Blue/Green) */
+    --light-bg-color: #f0f8ff;
+    --light-text-color: #333;
+    --light-header-bg: #005f73;
+    --light-header-text: #ffffff;
+    --light-nav-link-color: #e0fbfc;
+    --light-nav-link-hover-bg: #007f8b;
+    --light-section-bg: #ffffff;
+    --light-section-shadow: rgba(0, 95, 115, 0.1);
+    --light-heading-border: #bee3f8;
+    --light-link-color: #007f8b;
+    --light-skill-bg: #e0fbfc;
+    --light-skill-hover-bg: #94d2bd;
+    --light-skill-category-bg: #fafcff;
+    --light-skill-category-border: #e0fbfc;
+    --light-notification-bg: #2a9d8f;
+    --light-notification-text: #ffffff;
+    --light-footer-bg: #003f5c;
+    --light-footer-text: #e0fbfc;
+
+    /* Dark Theme (Synthwave Retro) */
+    --dark-bg-color: #1a1a2e; /* Dark Purple/Blue */
+    --dark-text-color: #e0fbfc; /* Pale Cyan */
+    --dark-header-bg: #16213e; /* Darker Blue */
+    --dark-header-text: #00f5d4; /* Neon Cyan */
+    --dark-nav-link-color: #f72585; /* Neon Pink */
+    --dark-nav-link-hover-bg: #b5179e; /* Darker Pink */
+    --dark-section-bg: #16213e;
+    --dark-section-shadow: rgba(247, 37, 133, 0.2); /* Pink shadow */
+    --dark-heading-border: #4cc9f0; /* Neon Blue */
+    --dark-link-color: #4cc9f0; /* Neon Blue */
+    --dark-skill-bg: #3a0ca3; /* Purple */
+    --dark-skill-hover-bg: #4361ee; /* Brighter Blue */
+    --dark-skill-category-bg: #1a1a2e;
+    --dark-skill-category-border: #4cc9f0;
+    --dark-notification-bg: #f72585; /* Neon Pink */
+    --dark-notification-text: #1a1a2e; /* Dark background for contrast */
+    --dark-footer-bg: #0f101a; /* Very Dark Blue/Black */
+    --dark-footer-text: #f72585; /* Neon Pink */
+
+    /* Neon Glow Effects */
+    --neon-pink-glow: 0 0 5px #f72585, 0 0 10px #f72585, 0 0 15px #f72585;
+    --neon-cyan-glow: 0 0 5px #00f5d4, 0 0 10px #00f5d4, 0 0 15px #00f5d4;
+    --neon-blue-glow: 0 0 5px #4cc9f0, 0 0 10px #4cc9f0, 0 0 15px #4cc9f0;
+
+    /* Set default theme to Dark (Synthwave) */
+    --bg-color: var(--dark-bg-color);
+    --text-color: var(--dark-text-color);
+    --header-bg: var(--dark-header-bg);
+    --header-text: var(--dark-header-text);
+    --nav-link-color: var(--dark-nav-link-color);
+    --nav-link-hover-bg: var(--dark-nav-link-hover-bg);
+    --section-bg: var(--dark-section-bg);
+    --section-shadow: var(--dark-section-shadow);
+    --heading-border: var(--dark-heading-border);
+    --link-color: var(--dark-link-color);
+    --skill-bg: var(--dark-skill-bg);
+    --skill-hover-bg: var(--dark-skill-hover-bg);
+    --skill-category-bg: var(--dark-skill-category-bg);
+    --skill-category-border: var(--dark-skill-category-border);
+    --notification-bg: var(--dark-notification-bg);
+    --notification-text: var(--dark-notification-text);
+    --footer-bg: var(--dark-footer-bg);
+    --footer-text: var(--dark-footer-text);
+    --caret-color: var(--dark-header-text); /* Caret color for dark mode */
+}
+
+body {
+    font-family: 'VT323', monospace; /* Apply retro font */
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
+    font-size: 18px; /* Slightly larger base font size for VT323 */
+}
+
+/* Light mode styles (when .light-mode is applied) */
+body.light-mode {
+    --bg-color: var(--light-bg-color);
+    --text-color: var(--light-text-color);
+    --header-bg: var(--light-header-bg);
+    --header-text: var(--light-header-text);
+    --nav-link-color: var(--light-nav-link-color);
+    --nav-link-hover-bg: var(--light-nav-link-hover-bg);
+    --section-bg: var(--light-section-bg);
+    --section-shadow: var(--light-section-shadow);
+    --heading-border: var(--light-heading-border);
+    --link-color: var(--light-link-color);
+    --skill-bg: var(--light-skill-bg);
+    --skill-hover-bg: var(--light-skill-hover-bg);
+    --skill-category-bg: var(--light-skill-category-bg);
+    --skill-category-border: var(--light-skill-category-border);
+    --notification-bg: var(--light-notification-bg);
+    --notification-text: var(--light-notification-text);
+    --footer-bg: var(--light-footer-bg);
+    --footer-text: var(--light-footer-text);
+    --caret-color: var(--light-header-text); /* Caret color for light mode */
+}
+
+
+header {
+    background: var(--header-bg);
+    color: var(--header-text);
+    text-shadow: var(--neon-cyan-glow); /* Apply neon glow to header text */
+    padding: 1.5rem 0; /* Slightly more padding */
+    text-align: center;
+    transition: background-color 0.3s ease, color 0.3s ease, text-shadow 0.3s ease;
+    border-bottom: 3px solid var(--dark-nav-link-color); /* Neon pink border */
+}
+
+/* Remove glow in light mode */
+body.light-mode header {
+    text-shadow: none;
+    border-bottom-color: var(--light-header-bg);
+}
+
+
+header h1 {
+    margin: 0;
+    padding-bottom: 0.5rem;
+    font-size: 3em; /* Larger heading */
+}
+
+header p {
+    margin: 0;
+    font-style: normal; /* Remove italic */
+    font-size: 1.2em;
+    min-height: 1.2em; /* Prevent layout shift during typing */
+}
+
+/* Blinking cursor for typing animation */
+.cursor {
+  display: inline-block;
+  background-color: var(--header-text);
+  margin-left: 2px;
+  width: 10px; /* Width of the cursor */
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  from, to { background-color: transparent }
+  50% { background-color: var(--header-text); }
+}
+
+/* Hide cursor in light mode or if needed */
+body.light-mode .cursor {
+    background-color: var(--light-header-text);
+}
+
+nav {
+    margin-top: 1rem;
+}
+
+nav a {
+    color: var(--nav-link-color);
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    text-shadow: var(--neon-pink-glow);
+    margin: 0 0.5rem;
+    border-radius: 0; /* Remove border-radius for retro feel */
+    border: 1px solid transparent; /* Add border for hover effect */
+    transition: background-color 0.3s ease, color 0.3s ease, text-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+nav a:hover {
+    background-color: var(--nav-link-hover-bg);
+    color: var(--dark-header-text); /* Neon cyan on hover */
+    text-shadow: var(--neon-cyan-glow);
+    border-color: var(--nav-link-color); /* Pink border on hover */
+}
+
+/* Adjust nav link appearance in light mode */
+body.light-mode nav a {
+    text-shadow: none;
+    border-radius: 5px; /* Restore border-radius */
+}
+body.light-mode nav a:hover {
+    color: var(--light-header-text);
+    text-shadow: none;
+    border-color: transparent;
+}
+
+
+main {
+    max-width: 960px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+section {
+    position: relative; /* Establish stacking context */
+    background: var(--section-bg);
+    margin-bottom: 2rem; /* More space */
+    padding: 2rem; /* More padding */
+    border-radius: 0; /* Remove border radius */
+    border: 2px solid var(--heading-border); /* Neon blue border */
+    box-shadow: 0 0 15px var(--section-shadow); /* Use variable shadow */
+    /* Removed scroll animation properties (opacity, transform, transition) */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; /* Keep only theme transitions */
+}
+
+/* Adjust section in light mode */
+body.light-mode section {
+    border-radius: 8px; /* Restore border radius */
+    border-color: transparent;
+}
+
+/* Removed section.visible rule as scroll animation is disabled */
+
+
+h2 {
+    color: var(--text-color);
+    border-bottom: 2px solid var(--heading-border);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.5rem; /* More space */
+    transition: color 0.3s ease, border-bottom-color 0.3s ease, text-shadow 0.3s ease;
+    text-shadow: var(--neon-blue-glow); /* Neon blue glow */
+    font-size: 2em; /* Larger section headings */
+}
+
+/* Remove glow in light mode */
+body.light-mode h2 {
+    text-shadow: none;
+}
+
+
+#contact a {
+    color: var(--link-color);
+    text-decoration: none;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+    text-shadow: var(--neon-blue-glow);
+}
+
+body.light-mode #contact a {
+    text-shadow: none;
+}
+
+#contact a:hover {
+    text-decoration: underline;
+}
+
+footer {
+    text-align: center;
+    margin-top: 3rem; /* More space */
+    padding: 1.5rem; /* More padding */
+    background: var(--footer-bg);
+    color: var(--footer-text);
+    transition: background-color 0.3s ease, color 0.3s ease, text-shadow 0.3s ease;
+    text-shadow: var(--neon-pink-glow);
+    border-top: 3px solid var(--dark-nav-link-color); /* Neon pink border */
+}
+
+body.light-mode footer {
+    text-shadow: none;
+    border-top-color: var(--light-footer-bg);
+}
+
+
+/* Basic styles for interactive elements (to be expanded) */
+.interactive-item {
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.interactive-item:hover {
+    transform: scale(1.05);
+}
+
+/* Skills Section Styling */
+.skills-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+.skill-category {
+    flex: 1 1 200px;
+    background-color: var(--skill-category-bg);
+    padding: 1.5rem; /* More padding */
+    border-radius: 0; /* Remove border radius */
+    border: 1px solid var(--skill-category-border);
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+body.light-mode .skill-category {
+    border-radius: 5px; /* Restore border radius */
+}
+
+
+.skill-category h3 {
+    margin-top: 0;
+    color: var(--text-color);
+    opacity: 0.9; /* Slightly more prominent */
+    border-bottom: 1px solid var(--heading-border);
+    padding-bottom: 0.3rem;
+    margin-bottom: 1rem; /* More space */
+    transition: color 0.3s ease, border-bottom-color 0.3s ease, text-shadow 0.3s ease;
+    text-shadow: var(--neon-blue-glow); /* Neon blue glow */
+    font-size: 1.3em;
+}
+
+body.light-mode .skill-category h3 {
+    text-shadow: none;
+}
+
+
+.skill-category ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.skill-category li {
+    margin-bottom: 0.5rem;
+    padding: 0.4rem 0.8rem; /* Slightly larger padding */
+    background-color: var(--skill-bg);
+    color: var(--dark-text-color); /* Use dark theme text color for contrast */
+    border-radius: 0; /* Remove border radius */
+    border: 1px solid var(--dark-link-color); /* Neon blue border */
+    display: inline-block;
+    margin-right: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease, color 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    font-size: 1em; /* Slightly larger skill tags */
+}
+
+body.light-mode .skill-category li {
+    color: var(--light-text-color); /* Adjust text color */
+    border-radius: 15px; /* Restore border radius */
+    border-color: transparent;
+}
+
+
+.skill-category li:hover {
+    background-color: var(--skill-hover-bg);
+    transform: translateY(-2px) scale(1.05); /* Lift and slightly grow */
+    color: #fff; /* Brighter text on hover */
+    box-shadow: var(--neon-blue-glow); /* Glow on hover */
+    border-color: var(--skill-hover-bg);
+}
+
+body.light-mode .skill-category li:hover {
+    color: var(--light-text-color);
+    box-shadow: none;
+    border-color: transparent;
+}
+
+
+/* Animation for sections scrolling into view */
+section {
+    /* ... existing styles ... */
+    opacity: 0; /* Start hidden */
+    transform: translateY(20px); /* Start slightly lower */
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+section.visible {
+    opacity: 1; /* Fade in */
+    /* transform: translateY(0); Removed transform */
+}
+
+/* Notification Area Styling */
+#notification-area {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    display: flex; /* Use flexbox for alignment */
+    flex-direction: column; /* Stack notifications vertically */
+    align-items: flex-end; /* Align notifications to the right */
+}
+
+.notification {
+    background-color: var(--notification-bg);
+    color: var(--notification-text);
+    padding: 12px 22px; /* More padding */
+    border-radius: 0; /* Remove border radius */
+    border: 2px solid var(--dark-text-color); /* Cyan border */
+    margin-top: 10px;
+    box-shadow: var(--neon-pink-glow); /* Pink glow */
+    opacity: 0;
+    transform: translateX(100%);
+    transition: opacity 0.5s ease, transform 0.5s ease, background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    max-width: 350px; /* Slightly wider */
+    text-align: left;
+    font-size: 1.1em;
+}
+
+body.light-mode .notification {
+    border-radius: 5px; /* Restore border radius */
+    border-color: transparent;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2); /* Restore shadow */
+}
+
+
+.notification.show {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Theme Switch Styles */
+.theme-switch-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1rem;
+    gap: 0.5rem;
+}
+
+.theme-switch-wrapper span {
+    color: var(--header-text);
+    font-size: 1em; /* Slightly larger label */
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+    text-shadow: var(--neon-cyan-glow); /* Match header text glow */
+}
+
+body.light-mode .theme-switch-wrapper span {
+    text-shadow: none;
+}
+
+
+.theme-switch {
+    display: inline-block;
+    height: 24px; /* Adjusted height */
+    position: relative;
+    width: 44px; /* Adjusted width */
+}
+
+.theme-switch input {
+    display: none;
+}
+
+.slider {
+    background-color: #555; /* Darker base for retro */
+    bottom: 0;
+    cursor: pointer;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition: .4s;
+}
+
+.slider:before {
+    background-color: var(--dark-nav-link-color); /* Neon pink handle */
+    bottom: 4px;
+    content: "";
+    height: 16px; /* Adjusted size */
+    left: 4px;
+    position: absolute;
+    transition: .4s;
+    width: 16px;
+    box-shadow: var(--neon-pink-glow); /* Glow for handle */
+}
+
+input:checked + .slider {
+    background-color: var(--light-link-color); /* Use light theme link color when checked (light mode active) */
+}
+
+input:checked + .slider:before {
+    background-color: #fff; /* White handle for light mode */
+    box-shadow: none; /* No glow for handle in light mode */
+    transform: translateX(20px);
+}
+
+.slider.round {
+    border-radius: 0; /* Square slider */
+}
+
+.slider.round:before {
+    border-radius: 0; /* Square handle */
+}
+
+/* Add some general retro list styling */
+ul {
+    list-style: square; /* Use square bullets */
+}
+li {
+    margin-bottom: 0.8rem; /* Slightly more space between list items */
+}
+
+/* Style for icons in lists */
+.icon {
+    display: inline-block;
+    margin-right: 0.5em;
+    font-size: 1.1em;
+    /* Optional: Add some retro color/glow */
+    /* color: var(--dark-link-color); */
+    /* text-shadow: var(--neon-blue-glow); */
+}
+
+/* Experience Expandable Item Styles */
+#experience ul {
+    list-style: none; /* Remove default bullets if desired */
+    padding-left: 0; /* Remove default padding */
+}
+
+.expandable-item {
+    position: relative; /* Needed for absolute positioning of detail-text */
+    cursor: default; /* Change cursor to indicate interaction */
+    margin-bottom: 1.2rem; /* Add more space between items */
+}
+
+.summary-text {
+    display: block; /* Ensure it takes full width */
+}
+
+.detail-text {
+    display: block; /* Use block for layout */
+    position: absolute;
+    left: 0; /* Align with the start of the list item */
+    top: 100%; /* Position below the summary text */
+    background-color: var(--skill-category-bg); /* Use a contrasting background */
+    color: var(--text-color); /* Use standard text color */
+    border: 1px solid var(--heading-border);
+    padding: 1rem;
+    margin-top: 0.5rem; /* Space between summary and detail */
+    border-radius: 0; /* Match retro theme */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000; /* Significantly increased z-index */
+    width: calc(100% - 2rem); /* Adjust width considering padding */
+    max-width: 500px; /* Prevent it from becoming too wide */
+
+    /* Hide initially */
+    opacity: 0;
+    max-height: 0;
+    /* overflow: hidden; Removed to test stacking context */
+    visibility: hidden; /* Use visibility for better accessibility */
+    transform: translateY(-10px); /* Start slightly above */
+    transition: opacity 0.3s ease, max-height 0.3s ease, transform 0.3s ease, visibility 0s linear 0.3s; /* Delay visibility change */
+}
+
+body.light-mode .detail-text {
+    box-shadow: 0 4px 8px var(--light-section-shadow);
+    border-radius: 5px; /* Restore radius in light mode */
+}
+
+.expandable-item:hover .detail-text {
+    opacity: 1;
+    max-height: 500px; /* Allow space for content */
+    visibility: visible;
+    transform: translateY(0);
+    transition: opacity 0.3s ease, max-height 0.3s ease, transform 0.3s ease, visibility 0s linear 0s; /* Show immediately */
+}
+
+/* Intro Section Styling */
+.intro-section {
+    text-align: center;
+    border-color: var(--dark-nav-link-color); /* Use pink border for emphasis */
+    box-shadow: 0 0 20px var(--dark-section-shadow); /* Enhance shadow */
+    /* Removed hover transition/effects */
+}
+
+body.light-mode .intro-section {
+    border-color: var(--light-heading-border);
+    box-shadow: 0 4px 8px var(--light-section-shadow);
+}
+
+/* Styling for the heading where JS will type */
+.intro-heading {
+    display: inline-block; /* Keep it inline */
+    vertical-align: bottom;
+    min-height: 1.2em; /* Prevent layout shifts */
+    /* Cursor will be handled by JS via a class or span */
+}
+
+/* Add a class for the JS-controlled cursor */
+.intro-heading .typing-cursor {
+    display: inline-block;
+    background-color: var(--caret-color);
+    width: 10px; /* Width of the cursor */
+    height: 1.1em; /* Match text height */
+    margin-left: 3px;
+    vertical-align: bottom;
+    opacity: 1;
+    animation: blink 1s step-end infinite; /* Use existing blink animation */
+}
