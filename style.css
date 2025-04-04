@@ -43,6 +43,8 @@
     --neon-pink-glow: 0 0 5px #f72585, 0 0 10px #f72585, 0 0 15px #f72585;
     --neon-cyan-glow: 0 0 5px #00f5d4, 0 0 10px #00f5d4, 0 0 15px #00f5d4;
     --neon-blue-glow: 0 0 5px #4cc9f0, 0 0 10px #4cc9f0, 0 0 15px #4cc9f0;
+    --aws-orange: #FF9900; /* AWS Orange */
+    --neon-orange-glow: 0 0 5px var(--aws-orange), 0 0 10px var(--aws-orange), 0 0 15px var(--aws-orange);
 
     /* Set default theme to Dark (Synthwave) */
     --bg-color: var(--dark-bg-color);
@@ -577,4 +579,169 @@ body.light-mode .intro-section {
     vertical-align: bottom;
     opacity: 1;
     animation: blink 1s step-end infinite; /* Use existing blink animation */
+}
+
+/* QR Code Modal Styles */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1001; /* Sit on top, higher than detail-text */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0, 0, 0, 0.7); /* Black w/ opacity */
+    backdrop-filter: blur(5px); /* Optional: blur background */
+    transition: opacity 0.3s ease; /* Smooth fade */
+}
+
+.modal.show-modal {
+    display: flex; /* Use flex to center content */
+    align-items: center;
+    justify-content: center;
+    opacity: 0; /* Start fully transparent for fade-in */
+    transition: opacity 0.4s ease; /* Smooth fade transition for the background */
+}
+
+.modal.show-modal {
+    opacity: 1; /* Fade in background */
+}
+
+/* Add animation keyframes */
+@keyframes modalFadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.8) translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+/* Keyframes for pulsing cyan glow animation (for name) */
+@keyframes pulseGlowCyan {
+    0%, 100% {
+        text-shadow: var(--neon-cyan-glow);
+    }
+    50% {
+        text-shadow: 0 0 8px #00f5d4, 0 0 15px #00f5d4, 0 0 25px #00f5d4;
+    }
+}
+
+/* Keyframes for pulsing orange glow animation (for AWS) */
+@keyframes pulseGlowOrange {
+    0%, 100% {
+        color: var(--aws-orange);
+        text-shadow: var(--neon-orange-glow);
+    }
+    50% {
+        color: #ffbf66; /* Lighter orange for pulse */
+        text-shadow: 0 0 8px var(--aws-orange), 0 0 15px var(--aws-orange), 0 0 25px var(--aws-orange); /* Brighter glow */
+    }
+}
+
+
+.modal-content {
+    position: relative;
+    background-color: var(--section-bg); /* Use section background */
+    margin: auto; /* Center vertically & horizontally */
+    padding: 30px; /* More padding */
+    border: 2px solid var(--heading-border); /* Match section border */
+    width: 80%; /* Could be more or less, depending on screen size */
+    max-width: 350px; /* Max width for the QR code */
+    box-shadow: 0 0 25px var(--section-shadow); /* Match section shadow */
+    border-radius: 0; /* Match retro theme */
+    text-align: center;
+    transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, transform 0.4s ease, opacity 0.4s ease; /* Add transform/opacity */
+    /* Apply animation when modal is shown */
+    opacity: 0; /* Start hidden for animation */
+    transform: scale(0.8) translateY(-20px); /* Start scaled down and slightly up */
+}
+
+/* Apply animation when modal is shown */
+.modal.show-modal .modal-content {
+    animation: modalFadeInScale 0.4s ease forwards;
+}
+
+
+body.light-mode .modal-content {
+    border-radius: 8px; /* Restore radius */
+}
+
+.modal-content img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: 15px auto; /* Center image and add space */
+    border: 1px solid var(--text-color); /* Simple border */
+    margin-bottom: 15px; /* Add space below image */
+}
+
+/* Styles for the new modal header */
+.modal-header {
+    margin-bottom: 15px; /* Space between header and QR code */
+    border-bottom: 1px solid var(--heading-border); /* Separator line */
+    padding-bottom: 10px;
+}
+
+.modal-name {
+    font-size: 1.4em; /* Larger name */
+    color: var(--header-text); /* Use header text color */
+    margin: 0 0 5px 0; /* Adjust spacing */
+    text-shadow: var(--neon-cyan-glow); /* Initial glow state */
+    animation: pulseGlowCyan 2s infinite ease-in-out; /* Apply the cyan pulsing animation */
+}
+
+.modal-title {
+    font-size: 1em;
+    color: var(--text-color); /* Standard text color */
+    margin: 0;
+    opacity: 0.9;
+}
+
+/* Style for the AWS span */
+.aws-text {
+    color: var(--aws-orange); /* Set base color */
+    text-shadow: var(--neon-orange-glow); /* Initial orange glow */
+    animation: pulseGlowOrange 1.8s infinite ease-in-out; /* Apply orange pulsing animation (slightly different timing) */
+    /* Prevent inheriting parent animation if any */
+    animation-play-state: running;
+}
+
+
+body.light-mode .modal-name,
+body.light-mode .aws-text { /* Remove glow in light mode */
+    text-shadow: none;
+    animation: none; /* Disable animation in light mode */
+}
+
+/* Ensure AWS text color is still orange in light mode, but without glow/animation */
+body.light-mode .aws-text {
+    color: #cc7a00; /* Darker orange for light background */
+}
+
+
+/* The Close Button */
+.close-button {
+    color: var(--nav-link-color); /* Use nav link color */
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 35px; /* Larger close button */
+    font-weight: bold;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+    text-shadow: var(--neon-pink-glow);
+}
+
+body.light-mode .close-button {
+    text-shadow: none;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: var(--nav-link-hover-bg); /* Use nav hover color */
+    text-decoration: none;
+    cursor: pointer;
 }

@@ -282,4 +282,32 @@ document.addEventListener('DOMContentLoaded', () => {
          setTimeout(typeIntroHeading, 500); // Start after a short delay
     }
 
+    // --- QR Code Modal Logic ---
+    const qrLink = document.getElementById('qr-link');
+    const qrModal = document.getElementById('qr-modal');
+    const closeButton = qrModal.querySelector('.close-button');
+
+    if (qrLink && qrModal && closeButton) {
+        // Show modal when QR link is clicked
+        qrLink.addEventListener('click', (e) => {
+            e.preventDefault(); // Prevent default anchor behavior
+            qrModal.classList.add('show-modal');
+        });
+
+        // Hide modal when close button is clicked
+        closeButton.addEventListener('click', () => {
+            qrModal.classList.remove('show-modal');
+        });
+
+        // Hide modal when clicking outside the modal content (on the background)
+        qrModal.addEventListener('click', (e) => {
+            // Check if the click is directly on the modal background
+            if (e.target === qrModal) {
+                qrModal.classList.remove('show-modal');
+            }
+        });
+    } else {
+        console.error('QR Modal elements not found!');
+    }
+
 });
