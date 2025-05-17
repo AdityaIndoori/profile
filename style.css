@@ -722,6 +722,10 @@ body.light-mode .aws-text {
     color: #cc7a00; /* Darker orange for light background */
 }
 
+body.light-mode .modal-name {
+    color: #333 !important;
+}
+
 
 /* The Close Button */
 .close-button {
@@ -744,4 +748,14 @@ body.light-mode .close-button {
     color: var(--nav-link-hover-bg); /* Use nav hover color */
     text-decoration: none;
     cursor: pointer;
+}
+
+/* Resume Link Styles */
+.resume-link {
+    color: var(--link-color);
+    text-decoration: none;
+}
+
+.resume-link:hover {
+    text-decoration: underline;
 }

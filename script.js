@@ -310,4 +310,32 @@ document.addEventListener('DOMContentLoaded', () => {
         console.error('QR Modal elements not found!');
     }
 
+    // --- Resume Modal Logic ---
+    const resumeLink = document.getElementById('resume-link');
+    const resumeModal = document.getElementById('resume-modal');
+    const resumeCloseButton = resumeModal.querySelector('.close-button');
+
+    if (resumeLink && resumeModal && resumeCloseButton) {
+        // Show modal when Resume link is clicked
+        resumeLink.addEventListener('click', (e) => {
+            e.preventDefault(); // Prevent default anchor behavior
+            resumeModal.classList.add('show-modal');
+        });
+
+        // Hide modal when close button is clicked
+        resumeCloseButton.addEventListener('click', () => {
+            resumeModal.classList.remove('show-modal');
+        });
+
+        // Hide modal when clicking outside the modal content (on the background)
+        resumeModal.addEventListener('click', (e) => {
+            // Check if the click is directly on the modal background
+            if (e.target === resumeModal) {
+                resumeModal.classList.remove('show-modal');
+            }
+        });
+    } else {
+        console.error('Resume Modal elements not found!');
+    }
+
 });
