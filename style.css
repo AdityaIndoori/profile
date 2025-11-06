@@ -244,6 +244,22 @@ body.light-mode #contact a {
     text-decoration: underline;
 }
 
+/* Achievements Section Link Styles */
+#achievements a {
+    color: var(--link-color);
+    text-decoration: none;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+    text-shadow: var(--neon-blue-glow);
+}
+
+body.light-mode #achievements a {
+    text-shadow: none;
+}
+
+#achievements a:hover {
+    text-decoration: underline;
+}
+
 footer {
     text-align: center;
     margin-top: 3rem; /* More space */
