@@ -27,7 +27,7 @@
     --dark-nav-link-color: #f72585; /* Neon Pink */
     --dark-nav-link-hover-bg: #b5179e; /* Darker Pink */
     --dark-section-bg: #16213e;
-    --dark-section-shadow: rgba(247, 37, 133, 0.2); /* Pink shadow */
+    --dark-section-shadow: rgba(247, 37, 133, 0.15); /* Pink shadow */
     --dark-heading-border: #4cc9f0; /* Neon Blue */
     --dark-link-color: #4cc9f0; /* Neon Blue */
     --dark-skill-bg: #3a0ca3; /* Purple */
@@ -40,11 +40,11 @@
     --dark-footer-text: #f72585; /* Neon Pink */
 
     /* Neon Glow Effects */
-    --neon-pink-glow: 0 0 5px #f72585, 0 0 10px #f72585, 0 0 15px #f72585;
-    --neon-cyan-glow: 0 0 5px #00f5d4, 0 0 10px #00f5d4, 0 0 15px #00f5d4;
-    --neon-blue-glow: 0 0 5px #4cc9f0, 0 0 10px #4cc9f0, 0 0 15px #4cc9f0;
+    --neon-pink-glow: 0 0 4px #f72585, 0 0 8px #f72585;
+    --neon-cyan-glow: 0 0 4px #00f5d4, 0 0 8px #00f5d4;
+    --neon-blue-glow: 0 0 4px #4cc9f0, 0 0 8px #4cc9f0;
     --aws-orange: #FF9900; /* AWS Orange */
-    --neon-orange-glow: 0 0 5px var(--aws-orange), 0 0 10px var(--aws-orange), 0 0 15px var(--aws-orange);
+    --neon-orange-glow: 0 0 4px var(--aws-orange), 0 0 8px var(--aws-orange);
 
     /* Set default theme to Dark (Synthwave) */
     --bg-color: var(--dark-bg-color);
@@ -642,7 +642,7 @@ body.light-mode .intro-section {
         text-shadow: var(--neon-cyan-glow);
     }
     50% {
-        text-shadow: 0 0 8px #00f5d4, 0 0 15px #00f5d4, 0 0 25px #00f5d4;
+        text-shadow: 0 0 6px #00f5d4, 0 0 12px #00f5d4;
     }
 }
 
@@ -654,7 +654,7 @@ body.light-mode .intro-section {
     }
     50% {
         color: #ffbf66; /* Lighter orange for pulse */
-        text-shadow: 0 0 8px var(--aws-orange), 0 0 15px var(--aws-orange), 0 0 25px var(--aws-orange); /* Brighter glow */
+        text-shadow: 0 0 6px var(--aws-orange), 0 0 12px var(--aws-orange); /* Brighter glow */
     }
 }
 
