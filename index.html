@@ -54,117 +54,124 @@
     <a class="skip-link" href="#main-content">Skip to main content</a>
     <header>
         <h1>Aditya Indoori</h1>
-        <p class="header-role">Software Development Engineer II · AWS Identity · Seattle, WA</p>
+        <p class="header-role"><span class="sr-only">Software Development Engineer II</span><span id="job-title-typing" aria-hidden="true">Software Development Engineer II</span><span class="cursor" aria-hidden="true">&nbsp;</span></p>
         <p class="print-only print-contact">Software Development Engineer II, AWS Identity · Seattle, WA<br><a href="tel:+15713759375">+1 571-375-9375</a> · <a href="mailto:indooriaditya@gmail.com">indooriaditya@gmail.com</a> · <a href="https://www.linkedin.com/in/aditya-indoori-a671b7172">LinkedIn</a> · <a href="https://adityaindoori.github.io/profile/">Portfolio</a></p>
         <nav aria-label="Main navigation">
-            <a href="linkedin-qr.png" id="qr-link" aria-haspopup="dialog">LinkedIn QR</a>
+            <a href="linkedin-qr.png" id="qr-link" aria-haspopup="dialog">QR</a>
             <a href="#experience">Experience</a>
             <a href="#projects">Projects</a>
             <a href="#skills">Skills</a>
             <a href="#education">Education</a>
-            <a href="#achievements">Recognition</a>
+            <a href="#achievements">Achievements</a>
             <a href="#contact">Contact</a>
-            <a href="Aditya_Indoori_Resume.pdf" download>Resume</a>
+            <a href="Aditya_Indoori_Resume.pdf" id="resume-link" aria-haspopup="dialog">Resume</a>
         </nav>
         <div class="theme-switch-wrapper">
             <label class="theme-switch" for="checkbox">
                 <input type="checkbox" id="checkbox" aria-label="Light mode">
-                <span class="slider" aria-hidden="true"></span>
+                <span class="slider round" aria-hidden="true"></span>
             </label>
-            <span id="theme-label">Light mode</span>
+            <span id="theme-label">Toggle Light Mode</span>
         </div>
     </header>
 
     <main id="main-content" tabindex="-1">
-        <section id="about" class="intro-section" aria-labelledby="about-heading">
-            <h2 id="about-heading" class="intro-heading">Secure access. Reliable systems. Measurable impact.</h2>
-            <h2 class="print-only">Summary</h2>
+        <section id="intro" class="intro-section" aria-labelledby="intro-heading">
+            <h2 id="intro-heading" class="intro-heading"><span class="sr-only">Authenticating user. Authorizing access.</span><span id="intro-typing" aria-hidden="true">Authenticating user...</span><span class="typing-cursor" aria-hidden="true"></span></h2>
+        </section>
+
+        <section id="about">
+            <h2>Summary</h2>
             <p class="summary">Software Development Engineer II at AWS Identity with 6+ years building cloud platforms and developer experiences at scale. I led multi-Region root user sign-in supporting 36M+ weekly sign-ins and the <a href="#aws-login"><code>aws login</code> experience for the AWS CLI</a>, alongside mobile authentication, observability, and developer productivity initiatives.</p>
             <p class="summary-focus">My work spans distributed systems, security, API integrations, and applied AI: connecting LLM agents to authenticated AWS services through MCP and helping startup and enterprise teams move AI ideas toward deployment with Python, JavaScript, and the OpenAI API. I also contribute as an ACM Middleware MIND program committee member, startup mentor and judge, and security researcher.</p>
-            <div class="stats">
-                <div class="stat"><span class="stat-value">36M+</span><span class="stat-label">weekly AWS root user sign-ins</span></div>
-                <div class="stat"><span class="stat-value">99.95%</span><span class="stat-label">sign-in availability per Region</span></div>
-                <div class="stat"><span class="stat-value">25K+</span><span class="stat-label"><code>aws login</code> sign-ins on launch day</span></div>
-                <div class="stat"><span class="stat-value">65%</span><span class="stat-label">lower SSO latency across 5M+ weekly sign-ins</span></div>
-                <div class="stat"><span class="stat-value">1M+</span><span class="stat-label">users on the mobile authentication SDK</span></div>
-                <div class="stat"><span class="stat-value">6+</span><span class="stat-label">years at Amazon Web Services</span></div>
-            </div>
         </section>
 
         <section id="experience">
             <h2>Experience</h2>
 
             <div class="job">
-                <div class="company-header">
-                    <h3>Amazon Web Services (AWS)</h3>
-                    <span class="location">Seattle, WA</span>
-                </div>
+                <h3><button type="button" class="interactive-title">Amazon Web Services (AWS) | Seattle, WA</button></h3>
 
                 <div class="role" id="aws-sde2">
-                    <div class="role-header">
-                        <h4 class="role-title">Software Development Engineer II</h4>
-                        <span class="role-dates">Sep 2022 – Present</span>
-                    </div>
+                    <p class="role-header"><strong class="role-title">Software Development Engineer II</strong> <span class="role-dates">(Sep 2022 – Present)</span></p>
                     <ul>
-                        <li id="root-sign-in"><strong>Multi-Region resilience.</strong> Led the design and delivery of <a href="https://aws.amazon.com/about-aws/whats-new/2026/09/root-user-regional-resiliency/" target="_blank" rel="noopener noreferrer">active-active AWS root user sign-in</a>, supporting <strong>36M+ weekly sign-ins</strong> at <strong>99.95% availability per Region</strong>. Built on containerized Spring services, Amazon ECS with AWS Fargate, Route 53 weighted routing, ALBs, DynamoDB, and KMS, with automated and manual failover; sign-in is now served across <strong>3 AWS Regions</strong>.</li>
-                        <li id="aws-login"><strong>Secure developer access.</strong> Designed and launched <a href="https://aws.amazon.com/blogs/security/simplified-developer-access-to-aws-with-aws-login/" target="_blank" rel="noopener noreferrer"><code>aws login</code> for the AWS CLI</a>, recording <strong>25,000+ sign-ins on launch day</strong>. Delivered OAuth 2.0 authorization code flow with PKCE for <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-sign-in.html" target="_blank" rel="noopener noreferrer">same-device and remote browser-based sign-in</a>, short-lived credentials instead of long-term access keys, and centralized control through AWS Organizations SCPs. Partnered with AWS CLI, IAM Authorization, and Product Management teams on the global launch.</li>
-                        <li><strong>Observability.</strong> Enhanced tracing and monitoring with OpenTelemetry and Amazon CloudWatch, reducing debugging time by <strong>30%</strong>.</li>
-                        <li><strong>CI/CD and operational efficiency.</strong> Led cross-functional developer-tooling and pipeline improvements, reducing build times by <strong>15%</strong> and operational overhead by <strong>23%</strong>.</li>
-                        <li><strong>Developer productivity.</strong> Designed internal tools that streamlined cloud infrastructure provisioning for <strong>hundreds of engineers</strong>. Mentored <strong>3 engineers</strong> through design reviews and guidance on cloud architecture, testing, security, and operational practices.</li>
+                        <li id="root-sign-in" class="expandable-item">
+                            <button type="button" class="summary-text detail-toggle" aria-expanded="false" aria-controls="root-sign-in-detail"><span class="icon" aria-hidden="true">☁️</span> Multi-Region AWS root user sign-in: <strong>99.95% availability per Region</strong> for <strong>36M+ weekly sign-ins</strong>.</button>
+                            <div class="detail-text" id="root-sign-in-detail"><strong>Multi-Region resilience.</strong> Led the design and delivery of <a href="https://aws.amazon.com/about-aws/whats-new/2026/09/root-user-regional-resiliency/" target="_blank" rel="noopener noreferrer">active-active AWS root user sign-in</a>, supporting <strong>36M+ weekly sign-ins</strong> at <strong>99.95% availability per Region</strong>. Built on containerized Spring services, Amazon ECS with AWS Fargate, Route 53 weighted routing, ALBs, DynamoDB, and KMS, with automated and manual failover; sign-in is now served across <strong>3 AWS Regions</strong>.</div>
+                        </li>
+                        <li id="aws-login" class="expandable-item">
+                            <button type="button" class="summary-text detail-toggle" aria-expanded="false" aria-controls="aws-login-detail"><span class="icon" aria-hidden="true">🔑</span> Launched <code>aws login</code> for AWS CLI with OAuth 2.0 and PKCE: <strong>25,000+ sign-ins on launch day</strong>.</button>
+                            <div class="detail-text" id="aws-login-detail"><strong>Secure developer access.</strong> Designed and launched <a href="https://aws.amazon.com/blogs/security/simplified-developer-access-to-aws-with-aws-login/" target="_blank" rel="noopener noreferrer"><code>aws login</code> for the AWS CLI</a>, recording <strong>25,000+ sign-ins on launch day</strong>. Delivered OAuth 2.0 authorization code flow with PKCE for <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-sign-in.html" target="_blank" rel="noopener noreferrer">same-device and remote browser-based sign-in</a>, short-lived credentials instead of long-term access keys, and centralized control through AWS Organizations SCPs. Partnered with AWS CLI, IAM Authorization, and Product Management teams on the global launch.</div>
+                        </li>
+                        <li class="expandable-item">
+                            <button type="button" class="summary-text detail-toggle" aria-expanded="false" aria-controls="observability-detail"><span class="icon" aria-hidden="true">🔎</span> Improved observability with OpenTelemetry and CloudWatch: <strong>30% less debugging time</strong>.</button>
+                            <div class="detail-text" id="observability-detail"><strong>Observability.</strong> Enhanced tracing and monitoring with OpenTelemetry and Amazon CloudWatch, reducing debugging time by <strong>30%</strong>.</div>
+                        </li>
+                        <li class="expandable-item">
+                            <button type="button" class="summary-text detail-toggle" aria-expanded="false" aria-controls="cicd-detail"><span class="icon" aria-hidden="true">🛠️</span> Improved CI/CD pipelines: <strong>15% faster builds</strong> and <strong>23% lower operational overhead</strong>.</button>
+                            <div class="detail-text" id="cicd-detail"><strong>CI/CD and operational efficiency.</strong> Led cross-functional developer-tooling and pipeline improvements, reducing build times by <strong>15%</strong> and operational overhead by <strong>23%</strong>.</div>
+                        </li>
+                        <li class="expandable-item">
+                            <button type="button" class="summary-text detail-toggle" aria-expanded="false" aria-controls="developer-tools-detail"><span class="icon" aria-hidden="true">🧑‍🏫</span> Streamlined provisioning for <strong>hundreds of engineers</strong> and mentored <strong>3 engineers</strong>.</button>
+                            <div class="detail-text" id="developer-tools-detail"><strong>Developer productivity.</strong> Designed internal tools that streamlined cloud infrastructure provisioning for <strong>hundreds of engineers</strong>. Mentored <strong>3 engineers</strong> through design reviews and guidance on cloud architecture, testing, security, and operational practices.</div>
+                        </li>
                     </ul>
                 </div>
 
                 <div class="role" id="aws-sde1">
-                    <div class="role-header">
-                        <h4 class="role-title">Software Development Engineer</h4>
-                        <span class="role-dates">Jun 2020 – Sep 2022</span>
-                    </div>
+                    <p class="role-header"><strong class="role-title">Software Development Engineer</strong> <span class="role-dates">(Jun 2020 – Sep 2022)</span></p>
                     <ul>
-                        <li id="mobile-sdk"><strong>Mobile authentication · 2022.</strong> Led design and launch of a unified authentication and authorization SDK for iOS and Android with asymmetric encryption, secure storage, and in-app browser deep links, bringing modern sign-in to <strong>1M+ users</strong> of AWS mobile apps.</li>
-                        <li id="sso-performance"><strong>SSO performance · 2021.</strong> Optimized AWS SSO sign-in with a React single-page app, Webpack code-splitting, compressed and minified assets on Amazon S3, and CloudFront edge caching. JMeter load testing guided the work, cutting latency by <strong>10 seconds (65%)</strong> across <strong>5M+ weekly sign-ins</strong>.</li>
-                        <li><strong>Application security.</strong> Mitigated SSRF, XSS, and remote code execution vulnerabilities across authentication services.</li>
+                        <li id="mobile-sdk" class="expandable-item">
+                            <button type="button" class="summary-text detail-toggle" aria-expanded="false" aria-controls="mobile-sdk-detail"><span class="icon" aria-hidden="true">📱</span> Launched a secure iOS and Android authentication SDK for <strong>1M+ users</strong>.</button>
+                            <div class="detail-text" id="mobile-sdk-detail"><strong>Mobile authentication · 2022.</strong> Led design and launch of a unified authentication and authorization SDK for iOS and Android with asymmetric encryption, secure storage, and in-app browser deep links, bringing modern sign-in to <strong>1M+ users</strong> of AWS mobile apps.</div>
+                        </li>
+                        <li id="sso-performance" class="expandable-item">
+                            <button type="button" class="summary-text detail-toggle" aria-expanded="false" aria-controls="sso-performance-detail"><span class="icon" aria-hidden="true">⚡</span> Reduced AWS SSO latency by <strong>10 seconds (65%)</strong> across <strong>5M+ weekly sign-ins</strong>.</button>
+                            <div class="detail-text" id="sso-performance-detail"><strong>SSO performance · 2021.</strong> Optimized AWS SSO sign-in with a React single-page app, Webpack code-splitting, compressed and minified assets on Amazon S3, and CloudFront edge caching. JMeter load testing guided the work, cutting latency by <strong>10 seconds (65%)</strong> across <strong>5M+ weekly sign-ins</strong>.</div>
+                        </li>
+                        <li class="expandable-item">
+                            <button type="button" class="summary-text detail-toggle" aria-expanded="false" aria-controls="security-detail"><span class="icon" aria-hidden="true">🛡️</span> Hardened authentication services against SSRF, XSS, and remote code execution.</button>
+                            <div class="detail-text" id="security-detail"><strong>Application security.</strong> Mitigated SSRF, XSS, and remote code execution vulnerabilities across authentication services.</div>
+                        </li>
                     </ul>
                 </div>
             </div>
 
             <div class="job">
-                <div class="company-header">
-                    <h3>Daon Trusted Identity Services</h3>
-                    <span class="location">Alexandria, VA</span>
-                </div>
+                <h3><button type="button" class="interactive-title">Daon Trusted Identity Services | Alexandria, VA</button></h3>
                 <div class="role" id="daon-intern">
-                    <div class="role-header">
-                        <h4 class="role-title">Software Engineer Intern</h4>
-                        <span class="role-dates">Jun 2019 – Aug 2019</span>
-                    </div>
+                    <p class="role-header"><strong class="role-title">Software Engineer Intern</strong> <span class="role-dates">(Jun 2019 – Aug 2019)</span></p>
                     <ul>
-                        <li>Migrated a legacy Spring authentication service to Spring Boot, cutting build time by <strong>1.5 minutes</strong> and improving maintainability.</li>
-                        <li>Architected a RESTful microservices test framework with TestNG, Mockito, and parameterized assertions, increasing regression coverage by <strong>28%</strong> and strengthening API reliability.</li>
+                        <li class="expandable-item">
+                            <button type="button" class="summary-text detail-toggle" aria-expanded="false" aria-controls="spring-migration-detail"><span class="icon" aria-hidden="true">🔄</span> Migrated Spring services to Spring Boot, cutting build time by <strong>1.5 minutes</strong>.</button>
+                            <div class="detail-text" id="spring-migration-detail">Migrated a legacy Spring authentication service to Spring Boot, cutting build time by <strong>1.5 minutes</strong> and improving maintainability.</div>
+                        </li>
+                        <li class="expandable-item">
+                            <button type="button" class="summary-text detail-toggle" aria-expanded="false" aria-controls="api-testing-detail"><span class="icon" aria-hidden="true">🛠️</span> Built API test automation with TestNG and Mockito, increasing regression coverage by <strong>28%</strong>.</button>
+                            <div class="detail-text" id="api-testing-detail">Architected a RESTful microservices test framework with TestNG, Mockito, and parameterized assertions, increasing regression coverage by <strong>28%</strong> and strengthening API reliability.</div>
+                        </li>
                     </ul>
                 </div>
             </div>
 
             <div class="job">
-                <div class="company-header">
-                    <h3>George Mason University</h3>
-                    <span class="location">Fairfax, VA</span>
-                </div>
+                <h3><button type="button" class="interactive-title">George Mason University | Fairfax, VA</button></h3>
                 <div class="role" id="gmu-teaching">
-                    <div class="role-header">
-                        <h4 class="role-title">Graduate Teaching Assistant, Information Sciences &amp; Technology</h4>
-                        <span class="role-dates">Jan 2019 – May 2019</span>
-                    </div>
+                    <p class="role-header"><strong class="role-title">Graduate Teaching Assistant, Information Sciences &amp; Technology</strong> <span class="role-dates">(Jan 2019 – May 2019)</span></p>
                     <ul>
-                        <li>Taught labs in IT problem-solving and object-oriented programming in Java, and wrote assignment questions.</li>
+                        <li class="expandable-item">
+                            <button type="button" class="summary-text detail-toggle" aria-expanded="false" aria-controls="teaching-detail"><span class="icon" aria-hidden="true">🧑‍🏫</span> Taught Java programming and IT problem-solving labs.</button>
+                            <div class="detail-text" id="teaching-detail">Taught labs in IT problem-solving and object-oriented programming in Java, and wrote assignment questions.</div>
+                        </li>
                     </ul>
                 </div>
                 <div class="role" id="gmu-android">
-                    <div class="role-header">
-                        <h4 class="role-title">Android Developer, Special Education &amp; Disability Research</h4>
-                        <span class="role-dates">Aug 2018 – Dec 2018</span>
-                    </div>
+                    <p class="role-header"><strong class="role-title">Android Developer, Special Education &amp; Disability Research</strong> <span class="role-dates">(Aug 2018 – Dec 2018)</span></p>
                     <ul>
-                        <li>Built accessible Android apps in Java and XML with TalkBack integration and dynamic text scaling for people with disabilities; automated accessibility testing reached <strong>98% WCAG compliance</strong>.</li>
+                        <li class="expandable-item">
+                            <button type="button" class="summary-text detail-toggle" aria-expanded="false" aria-controls="accessibility-detail"><span class="icon" aria-hidden="true">📱</span> Built accessible Android apps with TalkBack and dynamic text scaling, reaching <strong>98% WCAG compliance</strong>.</button>
+                            <div class="detail-text" id="accessibility-detail">Built accessible Android apps in Java and XML with TalkBack integration and dynamic text scaling for people with disabilities; automated accessibility testing reached <strong>98% WCAG compliance</strong>.</div>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -172,17 +179,17 @@
 
         <section id="projects">
             <h2>Projects</h2>
-            <div class="project">
-                <h3>AWS Sign-In MCP Server <span class="year">2025</span></h3>
-                <p>Implemented the internal AWS Sign-In federation MCP server, letting LLM agents running as MCP clients access AWS services with authenticated credentials.</p>
+            <div class="project expandable-item">
+                <h3><button type="button" class="interactive-title summary-text detail-toggle" aria-expanded="false" aria-controls="mcp-project-detail"><span class="icon" aria-hidden="true">🤖</span> AWS Sign-In MCP Server (2025)</button></h3>
+                <div class="detail-text" id="mcp-project-detail">Implemented the internal AWS Sign-In federation MCP server, letting LLM agents running as MCP clients access AWS services with authenticated credentials.</div>
             </div>
-            <div class="project">
-                <h3>Authorized Access to AWS Consoles <span class="year">2024</span></h3>
-                <p>Policy-based authorization that treats AWS consoles as AWS resources, letting customers block public console access using data perimeters such as network IP ranges.</p>
+            <div class="project expandable-item">
+                <h3><button type="button" class="interactive-title summary-text detail-toggle" aria-expanded="false" aria-controls="console-project-detail"><span class="icon" aria-hidden="true">🛡️</span> Authorized Access to AWS Consoles (2024)</button></h3>
+                <div class="detail-text" id="console-project-detail">Policy-based authorization that treats AWS consoles as AWS resources, letting customers block public console access using data perimeters such as network IP ranges.</div>
             </div>
-            <div class="project">
-                <h3>Biometric Vehicle Ignition Control <span class="year">2018</span></h3>
-                <p>Built a Raspberry Pi vehicle security system in Python, combining OpenCV face recognition, fingerprint authentication, and alcohol breath detection to control engine ignition.</p>
+            <div class="project expandable-item">
+                <h3><button type="button" class="interactive-title summary-text detail-toggle" aria-expanded="false" aria-controls="biometric-project-detail"><span class="icon" aria-hidden="true">🚗</span> Biometric Vehicle Ignition Control (2018)</button></h3>
+                <div class="detail-text" id="biometric-project-detail">Built a Raspberry Pi vehicle security system in Python, combining OpenCV face recognition, fingerprint authentication, and alcohol breath detection to control engine ignition.</div>
             </div>
             <p class="project-context">Additional shipped systems: <a href="#root-sign-in">multi-Region authentication resilience (2023)</a>, <a href="#mobile-sdk">the unified mobile authentication SDK (2022)</a>, and <a href="#sso-performance">SSO latency optimization (2021)</a> are detailed under Experience.</p>
         </section>
@@ -193,85 +200,85 @@
                 <div class="skill-category">
                     <h3>Languages</h3>
                     <ul>
-                        <li>Java</li>
-                        <li>Python</li>
-                        <li>JavaScript</li>
-                        <li>TypeScript</li>
-                        <li>Go</li>
-                        <li>C</li>
-                        <li>HTML/CSS</li>
+                        <li><button type="button" class="skill-notify">Java</button></li>
+                        <li><button type="button" class="skill-notify">Python</button></li>
+                        <li><button type="button" class="skill-notify">JavaScript</button></li>
+                        <li><button type="button" class="skill-notify">TypeScript</button></li>
+                        <li><button type="button" class="skill-notify">Go</button></li>
+                        <li><button type="button" class="skill-notify">C</button></li>
+                        <li><button type="button" class="skill-notify">HTML/CSS</button></li>
                     </ul>
                 </div>
                 <div class="skill-category">
                     <h3>AI &amp; ML</h3>
                     <ul>
-                        <li>MCP</li>
-                        <li>LLMs &amp; Generative AI</li>
-                        <li>OpenAI API</li>
-                        <li>TensorFlow</li>
-                        <li>PyTorch</li>
+                        <li><button type="button" class="skill-notify">MCP</button></li>
+                        <li><button type="button" class="skill-notify">LLMs &amp; Generative AI</button></li>
+                        <li><button type="button" class="skill-notify">OpenAI API</button></li>
+                        <li><button type="button" class="skill-notify">TensorFlow</button></li>
+                        <li><button type="button" class="skill-notify">PyTorch</button></li>
                     </ul>
                 </div>
                 <div class="skill-category">
                     <h3>Frameworks &amp; Libraries</h3>
                     <ul>
-                        <li>Spring Boot</li>
-                        <li>React</li>
-                        <li>Webpack</li>
-                        <li>AWS SDK</li>
-                        <li>AWS CDK</li>
-                        <li>JUnit</li>
-                        <li>Mockito</li>
-                        <li>TestNG</li>
-                        <li>Selenium</li>
+                        <li><button type="button" class="skill-notify">Spring Boot</button></li>
+                        <li><button type="button" class="skill-notify">React</button></li>
+                        <li><button type="button" class="skill-notify">Webpack</button></li>
+                        <li><button type="button" class="skill-notify">AWS SDK</button></li>
+                        <li><button type="button" class="skill-notify">AWS CDK</button></li>
+                        <li><button type="button" class="skill-notify">JUnit</button></li>
+                        <li><button type="button" class="skill-notify">Mockito</button></li>
+                        <li><button type="button" class="skill-notify">TestNG</button></li>
+                        <li><button type="button" class="skill-notify">Selenium</button></li>
                     </ul>
                 </div>
                 <div class="skill-category">
                     <h3>Cloud &amp; DevOps</h3>
                     <ul>
-                        <li>Route 53</li>
-                        <li>ALB</li>
-                        <li>ECS Fargate</li>
-                        <li>S3</li>
-                        <li>CloudFront</li>
-                        <li>DynamoDB</li>
-                        <li>VPC</li>
-                        <li>KMS</li>
-                        <li>CloudWatch</li>
-                        <li>OpenTelemetry</li>
-                        <li>Docker</li>
-                        <li>Kubernetes</li>
-                        <li>Terraform</li>
-                        <li>CI/CD</li>
-                        <li>Git</li>
+                        <li><button type="button" class="skill-notify">Route 53</button></li>
+                        <li><button type="button" class="skill-notify">ALB</button></li>
+                        <li><button type="button" class="skill-notify">ECS Fargate</button></li>
+                        <li><button type="button" class="skill-notify">S3</button></li>
+                        <li><button type="button" class="skill-notify">CloudFront</button></li>
+                        <li><button type="button" class="skill-notify">DynamoDB</button></li>
+                        <li><button type="button" class="skill-notify">VPC</button></li>
+                        <li><button type="button" class="skill-notify">KMS</button></li>
+                        <li><button type="button" class="skill-notify">CloudWatch</button></li>
+                        <li><button type="button" class="skill-notify">OpenTelemetry</button></li>
+                        <li><button type="button" class="skill-notify">Docker</button></li>
+                        <li><button type="button" class="skill-notify">Kubernetes</button></li>
+                        <li><button type="button" class="skill-notify">Terraform</button></li>
+                        <li><button type="button" class="skill-notify">CI/CD</button></li>
+                        <li><button type="button" class="skill-notify">Git</button></li>
                     </ul>
                 </div>
                 <div class="skill-category">
                     <h3>Security</h3>
                     <ul>
-                        <li>OAuth 2.0 &amp; PKCE</li>
-                        <li>OIDC</li>
-                        <li>JWT</li>
-                        <li>WebAuthn</li>
-                        <li>AuthN/AuthZ</li>
-                        <li>OWASP</li>
-                        <li>SSRF</li>
-                        <li>CSRF</li>
-                        <li>XSS</li>
-                        <li>RCE</li>
-                        <li>SQL Injection</li>
-                        <li>Open Redirect</li>
+                        <li><button type="button" class="skill-notify">OAuth 2.0 &amp; PKCE</button></li>
+                        <li><button type="button" class="skill-notify">OIDC</button></li>
+                        <li><button type="button" class="skill-notify">JWT</button></li>
+                        <li><button type="button" class="skill-notify">WebAuthn</button></li>
+                        <li><button type="button" class="skill-notify">AuthN/AuthZ</button></li>
+                        <li><button type="button" class="skill-notify">OWASP</button></li>
+                        <li><button type="button" class="skill-notify">SSRF</button></li>
+                        <li><button type="button" class="skill-notify">CSRF</button></li>
+                        <li><button type="button" class="skill-notify">XSS</button></li>
+                        <li><button type="button" class="skill-notify">RCE</button></li>
+                        <li><button type="button" class="skill-notify">SQL Injection</button></li>
+                        <li><button type="button" class="skill-notify">Open Redirect</button></li>
                     </ul>
                 </div>
                 <div class="skill-category">
                     <h3>Tools</h3>
                     <ul>
-                        <li>JMeter</li>
-                        <li>Jupyter</li>
-                        <li>NumPy</li>
-                        <li>Pandas</li>
-                        <li>Android Studio</li>
-                        <li>MATLAB</li>
+                        <li><button type="button" class="skill-notify">JMeter</button></li>
+                        <li><button type="button" class="skill-notify">Jupyter</button></li>
+                        <li><button type="button" class="skill-notify">NumPy</button></li>
+                        <li><button type="button" class="skill-notify">Pandas</button></li>
+                        <li><button type="button" class="skill-notify">Android Studio</button></li>
+                        <li><button type="button" class="skill-notify">MATLAB</button></li>
                     </ul>
                 </div>
             </div>
@@ -280,27 +287,27 @@
         <section id="education">
             <h2>Education</h2>
             <div class="education-item">
-                <h3>Master of Science in Computer Science</h3>
+                <h3><button type="button" class="interactive-title">Master of Science in Computer Science</button></h3>
                 <p>George Mason University, Fairfax, VA · 2018 – 2020</p>
             </div>
             <div class="education-item">
-                <h3>Bachelor of Technology in Electronics &amp; Communication Engineering</h3>
+                <h3><button type="button" class="interactive-title">Bachelor of Technology in Electronics &amp; Communication Engineering</button></h3>
                 <p>Gokaraju Rangaraju Institute of Engineering and Technology, Hyderabad, India · 2014 – 2018</p>
             </div>
         </section>
 
         <section id="achievements">
-            <h2>Recognition</h2>
+            <h2>Achievements</h2>
             <ul>
-                <li><strong>Program Committee Member</strong>, MIND workshop on MLOps in Distributed Systems at <a href="https://mindmlops.github.io/MIND2025.html" target="_blank" rel="noopener noreferrer">ACM/IFIP Middleware 2025</a> and <a href="https://mindmlops.github.io/" target="_blank" rel="noopener noreferrer">ACM Middleware 2026</a></li>
-                <li><strong>Peer Reviewer</strong>, <a href="https://orcid.org/0009-0002-4044-9534" target="_blank" rel="noopener noreferrer">SN Computer Science (Springer Nature)</a></li>
-                <li><strong>Judge</strong>, University of Washington Dempsey Startup Competition, 2025</li>
-                <li><strong>Mentor</strong>, University of Washington Nucleate Startup Accelerator, 2024</li>
-                <li><strong>Delegate</strong>, <a href="https://www.hpair.org/" target="_blank" rel="noopener noreferrer">Harvard HPAIR Conference</a>, 2024</li>
-                <li><strong>Hall of Fame</strong>, <a href="https://pages.ebay.com/securitycenter/archived-researchers.html#:~:text=Aditya%20Narayana%20Indoori" target="_blank" rel="noopener noreferrer">eBay Security Center</a>, for security research</li>
-                <li><strong>2nd Place</strong> with team CoviSave, <a href="https://www.linkedin.com/posts/angelhack_unboundedbydell-delltechnologies-hackathon-activity-6800074938326904832-U1pj/" target="_blank" rel="noopener noreferrer">Dell Technologies Unbounded Hackathon</a>, 2021</li>
-                <li><strong>Bug Bounty Awards</strong>, <a href="https://hackerone.com/drinkjavaseesharp" target="_blank" rel="noopener noreferrer">HackerOne</a>, for XSS, SSRF, and CSRF findings, 2020</li>
-                <li><strong>2nd Place</strong> ("Patch: Smart Home Repairs") and <strong>Crowd Favorite</strong> ("EStyle"), Tech Starters, George Mason University, 2018</li>
+                <li><button type="button" class="achievement-notify"><strong>Program Committee Member</strong></button>, MIND workshop on MLOps in Distributed Systems at <a href="https://mindmlops.github.io/MIND2025.html" target="_blank" rel="noopener noreferrer">ACM/IFIP Middleware 2025</a> and <a href="https://mindmlops.github.io/" target="_blank" rel="noopener noreferrer">ACM Middleware 2026</a></li>
+                <li><button type="button" class="achievement-notify"><strong>Peer Reviewer</strong></button>, <a href="https://orcid.org/0009-0002-4044-9534" target="_blank" rel="noopener noreferrer">SN Computer Science (Springer Nature)</a></li>
+                <li><button type="button" class="achievement-notify"><strong>Judge</strong></button>, University of Washington Dempsey Startup Competition, 2025</li>
+                <li><button type="button" class="achievement-notify"><strong>Mentor</strong></button>, University of Washington Nucleate Startup Accelerator, 2024</li>
+                <li><button type="button" class="achievement-notify"><strong>Delegate</strong></button>, <a href="https://www.hpair.org/" target="_blank" rel="noopener noreferrer">Harvard HPAIR Conference</a>, 2024</li>
+                <li><button type="button" class="achievement-notify"><strong>Hall of Fame</strong></button>, <a href="https://pages.ebay.com/securitycenter/archived-researchers.html#:~:text=Aditya%20Narayana%20Indoori" target="_blank" rel="noopener noreferrer">eBay Security Center</a>, for security research</li>
+                <li><button type="button" class="achievement-notify"><strong>2nd Place</strong></button> with team CoviSave, <a href="https://www.linkedin.com/posts/angelhack_unboundedbydell-delltechnologies-hackathon-activity-6800074938326904832-U1pj/" target="_blank" rel="noopener noreferrer">Dell Technologies Unbounded Hackathon</a>, 2021</li>
+                <li><button type="button" class="achievement-notify"><strong>Bug Bounty Awards</strong></button>, <a href="https://hackerone.com/drinkjavaseesharp" target="_blank" rel="noopener noreferrer">HackerOne</a>, for XSS, SSRF, and CSRF findings, 2020</li>
+                <li><button type="button" class="achievement-notify"><strong>2nd Place</strong></button> ("Patch: Smart Home Repairs") and <strong>Crowd Favorite</strong> ("EStyle"), Tech Starters, George Mason University, 2018</li>
             </ul>
         </section>
 
@@ -318,16 +325,31 @@
         <p>&copy; <span id="current-year">2026</span> Aditya Indoori</p>
     </footer>
 
-    <dialog id="qr-modal" aria-labelledby="qr-title">
+    <dialog id="qr-modal" class="modal" aria-labelledby="qr-title">
         <div class="modal-content">
             <button type="button" class="close-button" aria-label="Close LinkedIn QR code">&times;</button>
             <div class="modal-header">
                 <p id="qr-title" class="modal-name">Aditya Indoori</p>
-                <p class="modal-title">SDE II · <span class="aws-text">AWS Identity</span></p>
+                <p class="modal-title">SDE-2 | <span class="aws-text">AWS Identity</span> | FullStack</p>
             </div>
             <img src="linkedin-qr.png" alt="Scan to open Aditya Indoori's LinkedIn profile" width="419" height="412">
         </div>
     </dialog>
+
+    <dialog id="resume-modal" class="modal" aria-labelledby="resume-title">
+        <div class="modal-content">
+            <button type="button" class="close-button" aria-label="Close résumé downloads">&times;</button>
+            <div class="modal-header">
+                <p id="resume-title" class="modal-name">Aditya Indoori</p>
+                <p class="modal-title">Download Resume</p>
+            </div>
+            <div class="modal-body">
+                <a class="resume-link" href="Aditya_Indoori_Resume.pdf" download>Download Resume (PDF)</a>
+            </div>
+        </div>
+    </dialog>
+
+    <div id="notification-area" role="status" aria-live="polite"></div>
 
     <script src="script.js"></script>
 

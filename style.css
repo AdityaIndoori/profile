@@ -1,8 +1,5 @@
-/* ==========================================================================
-   Design tokens
-   ========================================================================== */
 :root {
-    /* Light theme */
+    /* Light Theme (Previous Blue/Green) */
     --light-bg-color: #f0f8ff;
     --light-text-color: #333;
     --light-header-bg: #005f73;
@@ -14,36 +11,42 @@
     --light-heading-border: #bee3f8;
     --light-link-color: #007f8b;
     --light-skill-bg: #e0fbfc;
+    --light-skill-hover-bg: #94d2bd;
     --light-skill-category-bg: #fafcff;
     --light-skill-category-border: #e0fbfc;
+    --light-notification-bg: #2a9d8f;
+    --light-notification-text: #ffffff;
     --light-footer-bg: #003f5c;
     --light-footer-text: #e0fbfc;
 
-    /* Dark theme (synthwave) */
-    --dark-bg-color: #1a1a2e;
-    --dark-text-color: #e0fbfc;
-    --dark-header-bg: #16213e;
-    --dark-header-text: #00f5d4;
-    --dark-nav-link-color: #ff4d9b;
-    --dark-nav-link-hover-bg: #b5179e;
+    /* Dark Theme (Synthwave Retro) */
+    --dark-bg-color: #1a1a2e; /* Dark Purple/Blue */
+    --dark-text-color: #e0fbfc; /* Pale Cyan */
+    --dark-header-bg: #16213e; /* Darker Blue */
+    --dark-header-text: #00f5d4; /* Neon Cyan */
+    --dark-nav-link-color: #f72585; /* Neon Pink */
+    --dark-nav-link-hover-bg: #b5179e; /* Darker Pink */
     --dark-section-bg: #16213e;
-    --dark-section-shadow: rgba(247, 37, 133, 0.15);
-    --dark-heading-border: #4cc9f0;
-    --dark-link-color: #4cc9f0;
-    --dark-skill-bg: #3a0ca3;
+    --dark-section-shadow: rgba(247, 37, 133, 0.15); /* Pink shadow */
+    --dark-heading-border: #4cc9f0; /* Neon Blue */
+    --dark-link-color: #4cc9f0; /* Neon Blue */
+    --dark-skill-bg: #3a0ca3; /* Purple */
+    --dark-skill-hover-bg: #4361ee; /* Brighter Blue */
     --dark-skill-category-bg: #1a1a2e;
     --dark-skill-category-border: #4cc9f0;
-    --dark-footer-bg: #0f101a;
-    --dark-footer-text: #f72585;
+    --dark-notification-bg: #f72585; /* Neon Pink */
+    --dark-notification-text: #1a1a2e; /* Dark background for contrast */
+    --dark-footer-bg: #0f101a; /* Very Dark Blue/Black */
+    --dark-footer-text: #f72585; /* Neon Pink */
 
-    /* Neon glow — resting values only, confined to name/headings/metrics */
+    /* Neon Glow Effects */
     --neon-pink-glow: 0 0 4px #f72585, 0 0 8px #f72585;
     --neon-cyan-glow: 0 0 4px #00f5d4, 0 0 8px #00f5d4;
     --neon-blue-glow: 0 0 4px #4cc9f0, 0 0 8px #4cc9f0;
-    --aws-orange: #ff9900;
+    --aws-orange: #FF9900; /* AWS Orange */
     --neon-orange-glow: 0 0 4px var(--aws-orange), 0 0 8px var(--aws-orange);
 
-    /* Active theme (defaults to dark) */
+    /* Set default theme to Dark (Synthwave) */
     --bg-color: var(--dark-bg-color);
     --text-color: var(--dark-text-color);
     --header-bg: var(--dark-header-bg);
@@ -55,16 +58,28 @@
     --heading-border: var(--dark-heading-border);
     --link-color: var(--dark-link-color);
     --skill-bg: var(--dark-skill-bg);
+    --skill-hover-bg: var(--dark-skill-hover-bg);
     --skill-category-bg: var(--dark-skill-category-bg);
     --skill-category-border: var(--dark-skill-category-border);
+    --notification-bg: var(--dark-notification-bg);
+    --notification-text: var(--dark-notification-text);
     --footer-bg: var(--dark-footer-bg);
     --footer-text: var(--dark-footer-text);
-
-    /* Type */
-    --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    --font-retro: 'VT323', 'Courier New', monospace;
+    --caret-color: var(--dark-header-text); /* Caret color for dark mode */
 }
 
+body {
+    font-family: 'VT323', monospace; /* Apply retro font */
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
+    font-size: 18px; /* Slightly larger base font size for VT323 */
+}
+
+/* Light mode styles (when .light-mode is applied) */
 body.light-mode {
     --bg-color: var(--light-bg-color);
     --text-color: var(--light-text-color);
@@ -77,149 +92,433 @@ body.light-mode {
     --heading-border: var(--light-heading-border);
     --link-color: var(--light-link-color);
     --skill-bg: var(--light-skill-bg);
+    --skill-hover-bg: var(--light-skill-hover-bg);
     --skill-category-bg: var(--light-skill-category-bg);
     --skill-category-border: var(--light-skill-category-border);
+    --notification-bg: var(--light-notification-bg);
+    --notification-text: var(--light-notification-text);
     --footer-bg: var(--light-footer-bg);
     --footer-text: var(--light-footer-text);
+    --caret-color: var(--light-header-text); /* Caret color for light mode */
 }
 
-/* ==========================================================================
-   Base
-   ========================================================================== */
-* {
-    box-sizing: border-box;
+button {
+    font: inherit;
+    color: inherit;
 }
 
-body {
-    font-family: var(--font-sans);
-    font-size: 16px;
-    line-height: 1.6;
-    margin: 0;
-    background-color: var(--bg-color);
-    color: var(--text-color);
-    transition: background-color 0.2s ease, color 0.2s ease;
+.interactive-title,
+.detail-toggle,
+.skill-notify,
+.achievement-notify {
+    background: none;
+    border: 0;
+    padding: 0;
+    text-align: inherit;
+    cursor: pointer;
+    text-shadow: inherit;
+}
+
+.interactive-title {
+    font-weight: inherit;
+}
+
+.detail-toggle {
+    width: 100%;
+    text-align: left;
+}
+
+code {
+    font: inherit;
 }
 
 main a {
     color: var(--link-color);
-    text-decoration: underline;
-    text-decoration-thickness: 1px;
-    text-underline-offset: 2px;
-}
-
-:focus {
-    outline: none;
 }
 
 :focus-visible {
     outline: 2px solid var(--link-color);
-    outline-offset: 2px;
+    outline-offset: 3px;
 }
 
-/* ==========================================================================
-   Skip link
-   ========================================================================== */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+    border: 0;
+}
+
 .skip-link {
     position: absolute;
-    top: -3rem;
-    left: 0.5rem;
-    z-index: 1000;
+    top: 0;
+    left: 1rem;
+    transform: translateY(-110%);
     background: var(--header-bg);
     color: var(--header-text);
-    padding: 0.6rem 1rem;
-    border-radius: 0 0 4px 4px;
-    transition: top 0.2s ease;
+    padding: 0.5rem 1rem;
+    z-index: 2000;
 }
 
 .skip-link:focus {
-    top: 0;
+    transform: none;
 }
 
-#main-content {
-    outline: none;
+.print-only {
+    display: none;
 }
 
-/* ==========================================================================
-   Header
-   ========================================================================== */
+
 header {
     background: var(--header-bg);
     color: var(--header-text);
-    padding: 2rem 1rem 1.5rem;
+    text-shadow: var(--neon-cyan-glow); /* Apply neon glow to header text */
+    padding: 1.5rem 0; /* Slightly more padding */
     text-align: center;
-    border-bottom: 3px solid var(--dark-nav-link-color);
-    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+    transition: background-color 0.3s ease, color 0.3s ease, text-shadow 0.3s ease;
+    border-bottom: 3px solid var(--dark-nav-link-color); /* Neon pink border */
 }
 
+/* Remove glow in light mode */
 body.light-mode header {
+    text-shadow: none;
     border-bottom-color: var(--light-header-bg);
 }
 
+
 header h1 {
-    font-family: var(--font-retro);
-    font-size: clamp(2.2rem, 5vw + 1rem, 3rem);
-    margin: 0 0 0.35rem;
-    letter-spacing: 0.02em;
-    text-shadow: var(--neon-cyan-glow);
-}
-
-body.light-mode header h1 {
-    text-shadow: none;
-}
-
-.header-role {
     margin: 0;
-    font-size: 1.05rem;
-    font-weight: 400;
+    padding-bottom: 0.5rem;
+    font-size: 3em; /* Larger heading */
+}
+
+header p {
+    margin: 0;
+    font-style: normal; /* Remove italic */
+    font-size: 1.2em;
+    min-height: 1.2em; /* Prevent layout shift during typing */
+}
+
+/* Blinking cursor for typing animation */
+.cursor {
+  display: inline-block;
+  background-color: var(--header-text);
+  margin-left: 2px;
+  width: 10px; /* Width of the cursor */
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  from, to { background-color: transparent }
+  50% { background-color: var(--header-text); }
+}
+
+/* Hide cursor in light mode or if needed */
+body.light-mode .cursor {
+    background-color: var(--light-header-text);
 }
 
 nav {
-    margin-top: 1.25rem;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 0.4rem;
+    margin-top: 1rem;
 }
 
 nav a {
     color: var(--nav-link-color);
     text-decoration: none;
-    padding: 0.45rem 0.9rem;
-    border: 1px solid transparent;
-    border-radius: 4px;
-    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+    padding: 0.5rem 1rem;
+    text-shadow: var(--neon-pink-glow);
+    margin: 0 0.5rem;
+    border-radius: 0; /* Remove border-radius for retro feel */
+    border: 1px solid transparent; /* Add border for hover effect */
+    transition: background-color 0.3s ease, color 0.3s ease, text-shadow 0.3s ease, border-color 0.3s ease;
 }
 
 nav a:hover {
     background-color: var(--nav-link-hover-bg);
-    color: var(--dark-header-text);
-    border-color: var(--nav-link-color);
+    color: var(--dark-header-text); /* Neon cyan on hover */
+    text-shadow: var(--neon-cyan-glow);
+    border-color: var(--nav-link-color); /* Pink border on hover */
 }
 
+/* Adjust nav link appearance in light mode */
+body.light-mode nav a {
+    text-shadow: none;
+    border-radius: 5px; /* Restore border-radius */
+}
 body.light-mode nav a:hover {
     color: var(--light-header-text);
+    text-shadow: none;
+    border-color: transparent;
 }
 
-/* ==========================================================================
-   Theme switch
-   ========================================================================== */
+
+main {
+    max-width: 960px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+section {
+    position: relative; /* Establish stacking context */
+    background: var(--section-bg);
+    margin-bottom: 2rem; /* More space */
+    padding: 2rem; /* More padding */
+    border-radius: 0; /* Remove border radius */
+    border: 2px solid var(--heading-border); /* Neon blue border */
+    box-shadow: 0 0 15px var(--section-shadow); /* Use variable shadow */
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out, background-color 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+/* Adjust section in light mode */
+body.light-mode section {
+    border-radius: 8px; /* Restore border radius */
+    border-color: transparent;
+}
+
+
+
+h2 {
+    color: var(--text-color);
+    border-bottom: 2px solid var(--heading-border);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.5rem; /* More space */
+    transition: color 0.3s ease, border-bottom-color 0.3s ease, text-shadow 0.3s ease;
+    text-shadow: var(--neon-blue-glow); /* Neon blue glow */
+    font-size: 2em; /* Larger section headings */
+}
+
+/* Remove glow in light mode */
+body.light-mode h2 {
+    text-shadow: none;
+}
+
+
+#contact a {
+    color: var(--link-color);
+    text-decoration: none;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+    text-shadow: var(--neon-blue-glow);
+}
+
+body.light-mode #contact a {
+    text-shadow: none;
+}
+
+#contact a:hover {
+    text-decoration: underline;
+}
+
+/* Achievements Section Link Styles */
+#achievements a {
+    color: var(--link-color);
+    text-decoration: none;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+    text-shadow: var(--neon-blue-glow);
+}
+
+body.light-mode #achievements a {
+    text-shadow: none;
+}
+
+#achievements a:hover {
+    text-decoration: underline;
+}
+
+footer {
+    text-align: center;
+    margin-top: 3rem; /* More space */
+    padding: 1.5rem; /* More padding */
+    background: var(--footer-bg);
+    color: var(--footer-text);
+    transition: background-color 0.3s ease, color 0.3s ease, text-shadow 0.3s ease;
+    text-shadow: var(--neon-pink-glow);
+    border-top: 3px solid var(--dark-nav-link-color); /* Neon pink border */
+}
+
+body.light-mode footer {
+    text-shadow: none;
+    border-top-color: var(--light-footer-bg);
+}
+
+
+/* Basic styles for interactive elements (to be expanded) */
+.interactive-item {
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.interactive-item:not(.skill-notify):hover {
+    transform: scale(1.05);
+}
+
+/* Skills Section Styling */
+.skills-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+.skill-category {
+    flex: 1 1 200px;
+    background-color: var(--skill-category-bg);
+    padding: 1.5rem; /* More padding */
+    border-radius: 0; /* Remove border radius */
+    border: 1px solid var(--skill-category-border);
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+body.light-mode .skill-category {
+    border-radius: 5px; /* Restore border radius */
+}
+
+
+.skill-category h3 {
+    margin-top: 0;
+    color: var(--text-color);
+    opacity: 0.9; /* Slightly more prominent */
+    border-bottom: 1px solid var(--heading-border);
+    padding-bottom: 0.3rem;
+    margin-bottom: 1rem; /* More space */
+    transition: color 0.3s ease, border-bottom-color 0.3s ease, text-shadow 0.3s ease;
+    text-shadow: var(--neon-blue-glow); /* Neon blue glow */
+    font-size: 1.3em;
+}
+
+body.light-mode .skill-category h3 {
+    text-shadow: none;
+}
+
+
+.skill-category ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.skill-category li {
+    margin-bottom: 0.5rem;
+    padding: 0.4rem 0.8rem; /* Slightly larger padding */
+    background-color: var(--skill-bg);
+    color: var(--dark-text-color); /* Use dark theme text color for contrast */
+    border-radius: 0; /* Remove border radius */
+    border: 1px solid var(--dark-link-color); /* Neon blue border */
+    display: inline-block;
+    margin-right: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease, color 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    font-size: 1em; /* Slightly larger skill tags */
+}
+
+body.light-mode .skill-category li {
+    color: var(--light-text-color); /* Adjust text color */
+    border-radius: 15px; /* Restore border radius */
+    border-color: transparent;
+}
+
+
+.skill-category li:hover,
+.skill-category li:focus-within {
+    background-color: var(--skill-hover-bg);
+    transform: translateY(-2px) scale(1.05); /* Lift and slightly grow */
+    color: #fff; /* Brighter text on hover */
+    box-shadow: var(--neon-blue-glow); /* Glow on hover */
+    border-color: var(--skill-hover-bg);
+}
+
+body.light-mode .skill-category li:hover,
+body.light-mode .skill-category li:focus-within {
+    color: var(--light-text-color);
+    box-shadow: none;
+    border-color: transparent;
+}
+
+
+/* Only progressively enhanced, offscreen sections start hidden. */
+.motion-enabled section.reveal-pending {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+section.visible {
+    opacity: 1;
+    transform: none;
+}
+
+section:has(.expanded) {
+    z-index: 2;
+}
+
+/* Notification Area Styling */
+#notification-area {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    display: flex; /* Use flexbox for alignment */
+    flex-direction: column; /* Stack notifications vertically */
+    align-items: flex-end; /* Align notifications to the right */
+}
+
+.notification {
+    background-color: var(--notification-bg);
+    color: var(--notification-text);
+    padding: 12px 22px; /* More padding */
+    border-radius: 0; /* Remove border radius */
+    border: 2px solid var(--dark-text-color); /* Cyan border */
+    margin-top: 10px;
+    box-shadow: var(--neon-pink-glow); /* Pink glow */
+    opacity: 0;
+    transform: translateX(100%);
+    transition: opacity 0.5s ease, transform 0.5s ease, background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    box-sizing: border-box;
+    max-width: min(350px, calc(100vw - 40px));
+    pointer-events: none;
+    text-align: left;
+    font-size: 1.1em;
+}
+
+body.light-mode .notification {
+    border-radius: 5px; /* Restore border radius */
+    border-color: transparent;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2); /* Restore shadow */
+}
+
+
+.notification.show {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Theme Switch Styles */
 .theme-switch-wrapper {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 1.25rem;
+    margin-top: 1rem;
     gap: 0.5rem;
 }
 
 .theme-switch-wrapper span {
-    font-size: 0.95rem;
+    color: var(--header-text);
+    font-size: 1em; /* Slightly larger label */
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+    text-shadow: var(--neon-cyan-glow); /* Match header text glow */
 }
 
+body.light-mode .theme-switch-wrapper span {
+    text-shadow: none;
+}
+
+
 .theme-switch {
-    position: relative;
     display: inline-block;
-    width: 44px;
-    height: 24px;
+    height: 24px; /* Adjusted height */
+    position: relative;
+    width: 44px; /* Adjusted width */
 }
 
 .theme-switch input {
@@ -229,524 +528,399 @@ body.light-mode nav a:hover {
     height: 100%;
     margin: 0;
     opacity: 0;
-    cursor: pointer;
     z-index: 1;
+    cursor: pointer;
+}
+
+.theme-switch input:focus-visible + .slider {
+    outline: 2px solid var(--header-text);
+    outline-offset: 3px;
 }
 
 .slider {
+    background-color: #555; /* Darker base for retro */
+    bottom: 0;
+    cursor: pointer;
+    left: 0;
     position: absolute;
-    inset: 0;
-    background-color: #555;
-    border-radius: 12px;
-    transition: background-color 0.2s ease;
+    right: 0;
+    top: 0;
+    transition: .4s;
 }
 
-.slider::before {
-    content: "";
-    position: absolute;
-    left: 4px;
+.slider:before {
+    background-color: var(--dark-nav-link-color); /* Neon pink handle */
     bottom: 4px;
+    content: "";
+    height: 16px; /* Adjusted size */
+    left: 4px;
+    position: absolute;
+    transition: .4s;
     width: 16px;
-    height: 16px;
-    border-radius: 50%;
-    background-color: var(--dark-nav-link-color);
-    box-shadow: var(--neon-pink-glow);
-    transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: var(--neon-pink-glow); /* Glow for handle */
 }
 
 input:checked + .slider {
-    background-color: var(--light-link-color);
+    background-color: var(--light-link-color); /* Use light theme link color when checked (light mode active) */
 }
 
-input:checked + .slider::before {
+input:checked + .slider:before {
+    background-color: #fff; /* White handle for light mode */
+    box-shadow: none; /* No glow for handle in light mode */
     transform: translateX(20px);
-    background-color: #fff;
-    box-shadow: none;
 }
 
-input:focus-visible + .slider {
-    outline: 2px solid var(--dark-header-text);
-    outline-offset: 2px;
+.slider.round {
+    border-radius: 0; /* Square slider */
 }
 
-/* ==========================================================================
-   Layout
-   ========================================================================== */
-main {
-    max-width: 1080px;
-    margin: 2.5rem auto;
-    padding: 0 1.25rem;
+.slider.round:before {
+    border-radius: 0; /* Square handle */
 }
 
-section {
-    background: var(--section-bg);
-    margin-bottom: 2.5rem;
-    padding: 2rem;
-    border: 2px solid var(--heading-border);
-    box-shadow: 0 0 15px var(--section-shadow);
-    transition: background-color 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
-}
-
-body.light-mode section {
-    border-radius: 8px;
-    border-color: transparent;
-}
-
-section:last-of-type {
-    margin-bottom: 0;
-}
-
-h2 {
-    color: var(--text-color);
-    border-bottom: 2px solid var(--heading-border);
-    padding-bottom: 0.5rem;
-    margin: 0 0 1.5rem;
-    font-size: 1.7em;
-    text-shadow: var(--neon-blue-glow);
-    transition: color 0.2s ease, border-bottom-color 0.2s ease;
-}
-
-body.light-mode h2 {
-    text-shadow: none;
-}
-
+/* Add some general retro list styling */
 ul {
-    list-style: square;
-    padding-left: 1.2rem;
+    list-style: square; /* Use square bullets */
 }
-
 li {
-    margin-bottom: 0.6rem;
+    margin-bottom: 0.8rem; /* Slightly more space between list items */
 }
 
-strong {
-    color: var(--header-text);
+.icon {
+    display: inline-block;
+    margin-right: 0.5em;
+    font-size: 1.1em;
 }
 
-body.light-mode strong {
-    color: inherit;
+
+/* Experience Expandable Item Styles */
+#experience ul {
+    list-style: none; /* Remove default bullets if desired */
+    padding-left: 0; /* Remove default padding */
 }
 
-code {
-    font-family: ui-monospace, SFMono-Regular, "SF Mono", Consolas, "Liberation Mono", Menlo, monospace;
-    font-size: 0.9em;
-    color: var(--nav-link-color);
+.expandable-item {
+    position: relative;
+    cursor: default;
+    margin-bottom: 1.2rem; /* Add more space between items */
 }
 
-body.light-mode code {
-    color: var(--light-link-color);
+.summary-text {
+    display: block; /* Ensure it takes full width */
 }
 
-/* ==========================================================================
-   About / intro
-   ========================================================================== */
+.detail-text {
+    margin-top: 0.5rem;
+}
+
+.js .detail-text {
+    box-sizing: border-box;
+    position: absolute;
+    left: 0;
+    top: 100%;
+    width: 100%;
+    max-width: 532px;
+    margin: 0;
+    background-color: var(--skill-category-bg);
+    color: var(--text-color);
+    border: 1px solid var(--heading-border);
+    padding: 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0s linear 0.3s;
+}
+
+body.light-mode .detail-text {
+    box-shadow: 0 4px 8px var(--light-section-shadow);
+    border-radius: 5px;
+}
+
+.expandable-item.expanded {
+    z-index: 10;
+}
+
+.js .expanded > .detail-text {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: none;
+    transition-delay: 0s;
+}
+
+/* Intro Section Styling */
 .intro-section {
     text-align: center;
-    border-color: var(--dark-nav-link-color);
+    border-color: var(--dark-nav-link-color); /* Use pink border for emphasis */
+    box-shadow: 0 0 20px var(--dark-section-shadow); /* Enhance shadow */
+    /* Removed hover transition/effects */
 }
 
 body.light-mode .intro-section {
     border-color: var(--light-heading-border);
+    box-shadow: 0 4px 8px var(--light-section-shadow);
 }
 
+/* Styling for the heading where JS will type */
 .intro-heading {
-    font-size: 1.3em;
+    display: inline-block; /* Keep it inline */
+    vertical-align: bottom;
+    min-height: 1.2em; /* Prevent layout shifts */
+    /* Cursor will be handled by JS via a class or span */
 }
 
-.summary,
-.summary-focus {
-    max-width: 760px;
-    margin: 0 auto 1rem;
-    font-size: 1.05rem;
-    text-align: left;
+/* Add a class for the JS-controlled cursor */
+.intro-heading .typing-cursor {
+    display: inline-block;
+    background-color: var(--caret-color);
+    width: 10px; /* Width of the cursor */
+    height: 1.1em; /* Match text height */
+    margin-left: 3px;
+    vertical-align: bottom;
+    opacity: 1;
+    animation: blink 1s step-end infinite; /* Use existing blink animation */
 }
 
-.summary-focus {
-    margin-bottom: 1.5rem;
-    opacity: 0.92;
-}
-
-.stats {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
-}
-
-.stat {
-    padding: 0.9rem 0.75rem;
-    border: 1px solid var(--heading-border);
-    background: var(--skill-category-bg);
-}
-
-body.light-mode .stat {
-    border-radius: 5px;
-}
-
-.stat-value {
-    display: block;
-    font-family: var(--font-retro);
-    font-size: 1.9em;
-    line-height: 1.15;
-    color: var(--header-text);
-    text-shadow: var(--neon-cyan-glow);
-}
-
-body.light-mode .stat-value {
-    color: var(--light-header-bg);
-    text-shadow: none;
-}
-
-.stat-label {
-    display: block;
-    font-size: 0.85rem;
-    opacity: 0.9;
-    margin-top: 0.2rem;
-}
-
-/* ==========================================================================
-   Experience
-   ========================================================================== */
-.job {
-    margin-bottom: 2rem;
-}
-
-.job:last-child {
-    margin-bottom: 0;
-}
-
-.company-header,
-.role-header {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: baseline;
-    gap: 0.25rem 1rem;
-}
-
-.company-header h3 {
-    margin: 0 0 0.5rem;
-    font-size: 1.35em;
-}
-
-.location,
-.role-dates {
-    opacity: 0.8;
-    white-space: nowrap;
-    font-size: 0.9em;
-}
-
-.role {
-    margin: 0 0 1.5rem;
-    padding-left: 1rem;
-    border-left: 2px solid var(--heading-border);
-}
-
-.role:last-child {
-    margin-bottom: 0;
-}
-
-.role-title {
-    margin: 0 0 0.5rem;
-    font-size: 1.15em;
-    color: var(--header-text);
-}
-
-body.light-mode .role-title {
-    color: var(--light-header-bg);
-}
-
-.role ul {
-    margin: 0.5rem 0 0;
-}
-
-.role li {
-    margin-bottom: 0.7rem;
-}
-
-/* ==========================================================================
-   Projects / Education
-   ========================================================================== */
-.project,
-.education-item {
-    margin-bottom: 1.5rem;
-}
-
-.project:last-child,
-.education-item:last-child {
-    margin-bottom: 0;
-}
-
-.project h3,
-.education-item h3 {
-    margin: 0 0 0.3rem;
-    font-size: 1.2em;
-}
-
-.project p,
-.education-item p {
+/* Native dialogs retain the original full-screen modal appearance. */
+.modal {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    max-height: none;
     margin: 0;
-}
-
-.year {
-    font-weight: normal;
-    font-size: 0.8em;
-    margin-left: 0.5rem;
-    opacity: 0.8;
-}
-
-/* ==========================================================================
-   Skills
-   ========================================================================== */
-.skills-container {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 1.25rem;
-}
-
-.skill-category {
-    background-color: var(--skill-category-bg);
-    padding: 1.25rem;
-    border: 1px solid var(--skill-category-border);
-    transition: background-color 0.2s ease, border-color 0.2s ease;
-}
-
-body.light-mode .skill-category {
-    border-radius: 5px;
-}
-
-.skill-category h3 {
-    margin-top: 0;
-    border-bottom: 1px solid var(--heading-border);
-    padding-bottom: 0.3rem;
-    margin-bottom: 0.9rem;
-    font-size: 1.1em;
-}
-
-.skill-category ul {
-    list-style: none;
     padding: 0;
-    margin: 0;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-}
-
-.skill-category li {
-    margin: 0;
-    padding: 0.35rem 0.7rem;
-    background-color: var(--skill-bg);
-    color: var(--dark-text-color);
-    border: 1px solid var(--dark-link-color);
-    font-size: 0.9rem;
-}
-
-body.light-mode .skill-category li {
-    color: var(--light-text-color);
-    border-radius: 12px;
-    border-color: transparent;
-}
-
-/* ==========================================================================
-   Achievements / Contact
-   ========================================================================== */
-#contact .contact-links {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-#contact .contact-links li {
-    margin-bottom: 0.6rem;
-}
-
-/* ==========================================================================
-   Footer
-   ========================================================================== */
-footer {
-    text-align: center;
-    margin-top: 3rem;
-    padding: 1.5rem;
-    background: var(--footer-bg);
-    color: var(--footer-text);
-    border-top: 3px solid var(--dark-nav-link-color);
-    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
-}
-
-body.light-mode footer {
-    border-top-color: var(--light-footer-bg);
-}
-
-/* ==========================================================================
-   QR dialog
-   ========================================================================== */
-dialog#qr-modal {
-    border: none;
-    padding: 0;
-    background: transparent;
-    max-width: min(350px, 92vw);
-    max-height: 90vh;
+    border: 0;
     color: var(--text-color);
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(5px);
+    overflow: auto;
 }
 
-dialog#qr-modal::backdrop {
-    background: rgba(0, 0, 0, 0.7);
-    backdrop-filter: blur(4px);
+.modal[open] {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
+
+.modal::backdrop {
+    background: transparent;
+}
+
+/* Add animation keyframes */
+@keyframes modalFadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.8) translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+/* Keyframes for pulsing cyan glow animation (for name) */
+@keyframes pulseGlowCyan {
+    0%, 100% {
+        text-shadow: var(--neon-cyan-glow);
+    }
+    50% {
+        text-shadow: 0 0 6px #00f5d4, 0 0 12px #00f5d4;
+    }
+}
+
+/* Keyframes for pulsing orange glow animation (for AWS) */
+@keyframes pulseGlowOrange {
+    0%, 100% {
+        color: var(--aws-orange);
+        text-shadow: var(--neon-orange-glow);
+    }
+    50% {
+        color: #ffbf66; /* Lighter orange for pulse */
+        text-shadow: 0 0 6px var(--aws-orange), 0 0 12px var(--aws-orange); /* Brighter glow */
+    }
+}
+
 
 .modal-content {
     position: relative;
-    background-color: var(--section-bg);
-    padding: 2rem 1.75rem;
-    border: 2px solid var(--heading-border);
-    box-shadow: 0 0 25px var(--section-shadow);
-    text-align: center;
-    max-height: 90vh;
+    background-color: var(--section-bg); /* Use section background */
+    margin: auto; /* Center vertically & horizontally */
+    padding: 30px; /* More padding */
+    border: 2px solid var(--heading-border); /* Match section border */
+    width: min(80%, calc(100vw - 96px));
+    max-width: 350px;
+    max-height: calc(100dvh - 104px);
     overflow: auto;
-    transition: background-color 0.2s ease, border-color 0.2s ease;
+    box-shadow: 0 0 25px var(--section-shadow); /* Match section shadow */
+    border-radius: 0; /* Match retro theme */
+    text-align: center;
+    transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, transform 0.4s ease, opacity 0.4s ease; /* Add transform/opacity */
+    opacity: 1;
+    transform: none;
 }
 
+/* Apply animation when modal is shown */
+.modal[open] .modal-content {
+    animation: modalFadeInScale 0.4s ease forwards;
+}
+
+
 body.light-mode .modal-content {
-    border-radius: 8px;
+    border-radius: 8px; /* Restore radius */
 }
 
 .modal-content img {
     display: block;
     max-width: 100%;
     height: auto;
-    margin: 1rem auto 0;
-    border: 1px solid var(--text-color);
+    margin: 15px auto; /* Center image and add space */
+    border: 1px solid var(--text-color); /* Simple border */
+    margin-bottom: 15px; /* Add space below image */
 }
 
+/* Styles for the new modal header */
 .modal-header {
-    margin-bottom: 1rem;
-    border-bottom: 1px solid var(--heading-border);
-    padding-bottom: 0.6rem;
+    margin-bottom: 15px; /* Space between header and QR code */
+    border-bottom: 1px solid var(--heading-border); /* Separator line */
+    padding-bottom: 10px;
 }
 
 .modal-name {
-    font-size: 1.3em;
-    color: var(--header-text);
-    margin: 0 0 0.3rem;
-    text-shadow: var(--neon-cyan-glow);
+    font-size: 1.4em; /* Larger name */
+    color: var(--header-text); /* Use header text color */
+    margin: 0 0 5px 0; /* Adjust spacing */
+    text-shadow: var(--neon-cyan-glow); /* Initial glow state */
+    animation: pulseGlowCyan 2s infinite ease-in-out; /* Apply the cyan pulsing animation */
 }
 
 .modal-title {
-    font-size: 0.95rem;
+    font-size: 1em;
+    color: var(--text-color); /* Standard text color */
     margin: 0;
     opacity: 0.9;
 }
 
+/* Style for the AWS span */
 .aws-text {
-    color: var(--aws-orange);
-    text-shadow: var(--neon-orange-glow);
+    color: var(--aws-orange); /* Set base color */
+    text-shadow: var(--neon-orange-glow); /* Initial orange glow */
+    animation: pulseGlowOrange 1.8s infinite ease-in-out; /* Apply orange pulsing animation (slightly different timing) */
+    /* Prevent inheriting parent animation if any */
+    animation-play-state: running;
+}
+
+
+body.light-mode .modal-name,
+body.light-mode .aws-text { /* Remove glow in light mode */
+    text-shadow: none;
+    animation: none; /* Disable animation in light mode */
+}
+
+/* Ensure AWS text color is still orange in light mode, but without glow/animation */
+body.light-mode .aws-text {
+    color: #cc7a00; /* Darker orange for light background */
 }
 
 body.light-mode .modal-name {
-    color: #333;
-    text-shadow: none;
+    color: #333 !important;
 }
 
-body.light-mode .aws-text {
-    color: #a35a00;
-    text-shadow: none;
-}
 
+/* The Close Button */
 .close-button {
+    color: var(--nav-link-color); /* Use nav link color */
     position: absolute;
-    top: 0.5rem;
-    right: 0.6rem;
+    top: 10px;
+    right: 20px;
+    font-size: 35px; /* Larger close button */
+    font-weight: bold;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+    text-shadow: var(--neon-pink-glow);
+    border: 0;
     background: none;
-    border: none;
-    padding: 0.25rem 0.5rem;
-    font-size: 1.75rem;
+    padding: 0;
     line-height: 1;
-    cursor: pointer;
-    color: var(--nav-link-color);
-    transition: color 0.2s ease;
-}
-
-.close-button:hover {
-    color: var(--nav-link-hover-bg);
 }
 
 body.light-mode .close-button {
+    text-shadow: none;
     color: var(--light-header-bg);
 }
 
-body.light-mode .close-button:hover {
-    color: var(--light-link-color);
+.close-button:hover,
+.close-button:focus {
+    color: var(--nav-link-hover-bg); /* Use nav hover color */
+    text-decoration: none;
+    cursor: pointer;
 }
 
-@media (max-width: 480px) {
-    dialog#qr-modal {
-        max-width: 94vw;
-    }
-
-    .modal-content {
-        padding: 1.5rem 1.25rem;
-        max-height: 85vh;
-    }
+/* Resume Link Styles */
+.resume-link {
+    color: var(--link-color);
+    text-decoration: none;
 }
 
-/* ==========================================================================
-   Print-only content (hidden on screen)
-   ========================================================================== */
-.print-only {
-    display: none;
-}
-
-/* ==========================================================================
-   Responsive
-   ========================================================================== */
-@media (max-width: 900px) {
-    .skills-container {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
+.resume-link:hover {
+    text-decoration: underline;
 }
 
 @media (max-width: 600px) {
-    header h1 {
-        font-size: 2.2em;
+    nav a {
+        display: inline-block;
+        margin: 0.15rem;
+        padding: 0.3rem 0.5rem;
     }
 
     section {
         padding: 1.25rem;
     }
 
-    .role {
-        padding-left: 0.75rem;
+    .skill-category {
+        min-width: 0;
+        padding: 1rem;
     }
 
-    .stats {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media (max-width: 480px) {
-    .skills-container {
-        grid-template-columns: 1fr;
+    .modal-content {
+        padding: 24px;
+        width: calc(100vw - 80px);
+        max-height: calc(100dvh - 96px);
     }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-    html {
-        scroll-behavior: smooth;
+@media (pointer: coarse), (max-width: 600px) {
+    .js .detail-text {
+        position: static;
+        display: none;
+        width: 100%;
+        max-width: none;
+    }
+
+    .js .expanded > .detail-text {
+        display: block;
+        margin-top: 0.5rem;
     }
 }
 
 @media (prefers-reduced-motion: reduce) {
-    *,
-    *::before,
-    *::after {
-        transition: none !important;
+    *, *::before, *::after {
         animation: none !important;
+        transition: none !important;
         scroll-behavior: auto !important;
+    }
+
+    .interactive-item:hover,
+    .skill-category li:hover,
+    .skill-category li:focus-within,
+    .notification {
+        transform: none !important;
     }
 }
 
-/* ==========================================================================
-   Print (résumé PDF)
-   ========================================================================== */
 @page {
     size: Letter;
     margin: 0.5in 0.55in;
@@ -762,23 +936,25 @@ body.light-mode .close-button:hover {
         background: #fff;
     }
 
-    *,
-    *::before,
-    *::after {
+    *, *::before, *::after {
         text-shadow: none !important;
         box-shadow: none !important;
         animation: none !important;
         transition: none !important;
+        transform: none !important;
     }
 
     .skip-link,
     nav,
     .theme-switch-wrapper,
-    .intro-heading,
-    .stats,
+    .header-role,
+    #intro,
     #contact,
     footer,
-    dialog#qr-modal {
+    .modal,
+    #notification-area,
+    #experience .summary-text,
+    .icon {
         display: none !important;
     }
 
@@ -793,15 +969,11 @@ body.light-mode .close-button:hover {
         padding: 0 0 6pt;
         text-align: left;
     }
+
     header h1 {
-        font-family: inherit;
         font-size: 20pt;
         margin: 0 0 2pt;
         padding: 0;
-    }
-
-    .header-role {
-        display: none;
     }
 
     header .print-contact {
@@ -816,13 +988,14 @@ body.light-mode .close-button:hover {
     }
 
     section,
-    body.light-mode section {
+    body.light-mode section,
+    .motion-enabled section.reveal-pending {
+        opacity: 1;
         background: none;
         border: 0;
         border-radius: 0;
         margin: 0 0 8pt;
         padding: 0;
-        text-align: left;
     }
 
     h2 {
@@ -838,39 +1011,30 @@ body.light-mode .close-button:hover {
 
     .summary,
     .summary-focus {
-        max-width: none;
-        font-size: inherit;
         margin: 0 0 4pt;
     }
 
-    h3,
-    .company-header h3 {
+    h3 {
         font-size: 10.5pt;
         margin: 0 0 2pt;
         break-after: avoid;
     }
 
-    .role-title,
-    body.light-mode .role-title {
+    .role-header {
         font-size: 10pt;
-        color: #1a1a1a;
         margin: 0 0 2pt;
         break-after: avoid;
     }
 
-    .role {
-        border: 0;
-        padding: 0;
-        margin-bottom: 4pt;
-    }
-
+    .role,
     .job {
         margin-bottom: 5pt;
     }
 
     li,
-    .role li {
+    .expandable-item {
         margin-bottom: 2pt;
+        break-inside: avoid;
     }
 
     .role ul,
@@ -878,48 +1042,48 @@ body.light-mode .close-button:hover {
         margin: 3pt 0 0;
     }
 
-    .company-header,
-    .role-header {
-        gap: 0 1rem;
-        break-after: avoid;
+    #experience ul {
+        list-style: square;
+        padding-left: 1.2rem;
     }
 
-    strong,
-    code,
-    body.light-mode code,
     a,
     main a,
-    #experience a,
-    #projects a,
+    #contact a,
     #achievements a {
         color: inherit;
+        text-decoration: underline;
     }
 
-    a {
-        text-decoration: underline;
+    .js .detail-text,
+    .js .expanded > .detail-text,
+    body.light-mode .detail-text {
+        display: block;
+        position: static;
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+        width: auto;
+        max-width: none;
+        margin: 0;
+        padding: 0;
+        border: 0;
+        background: none;
+        color: inherit;
     }
 
     .project,
     .education-item {
         margin-bottom: 4pt;
-    }
-
-    .project,
-    .education-item,
-    .company-header {
         break-inside: avoid;
     }
 
-    .role li {
-        break-inside: avoid;
+    .project .summary-text {
+        display: inline;
+        width: auto;
     }
 
-    .project h3,
-    .education-item h3 {
-        font-size: 10pt;
-        margin: 0 0 2pt;
-    }
-
+    .education-item p,
     .project-context {
         margin: 4pt 0;
     }
@@ -928,18 +1092,18 @@ body.light-mode .close-button:hover {
         display: block;
     }
 
-    .skill-category,
-    body.light-mode .skill-category {
+    .skill-category {
         background: none;
         border: 0;
         padding: 0;
         margin-bottom: 2pt;
     }
 
-    .skill-category h3,
-    body.light-mode .skill-category h3 {
+    .skill-category h3 {
         display: inline;
         font-size: inherit;
+        color: inherit;
+        opacity: 1;
         border: 0;
         margin: 0;
         padding: 0;
@@ -957,15 +1121,10 @@ body.light-mode .close-button:hover {
         border: 0;
         padding: 0;
         margin: 0;
-        font-size: inherit;
         color: inherit;
     }
 
     .skill-category li:not(:last-child)::after {
         content: ", ";
-    }
-
-    #achievements ul {
-        padding-left: 1.2rem;
     }
 }
