@@ -1,0 +1,87 @@
+/* Profile site: maps the style kit's --s-* tokens onto this page's own variables.
+   Screen only (print keeps its résumé layout). Active only when a style is picked
+   (body[data-style]); the original synthwave / blue-green looks are untouched. */
+@media screen {
+  body[data-style] {
+    --bg-color: var(--s-bg);
+    --text-color: var(--s-fg);
+    --header-bg: var(--s-surface);
+    --header-text: var(--s-heading-text);
+    --nav-link-color: var(--s-link);
+    --nav-link-hover-bg: var(--s-accent);
+    --section-bg: var(--s-surface);
+    --section-shadow: transparent;
+    --heading-border: var(--s-border);
+    --link-color: var(--s-link);
+    --skill-bg: var(--s-surface-2);
+    --skill-hover-bg: var(--s-accent);
+    --skill-category-bg: var(--s-bg);
+    --skill-category-border: var(--s-border);
+    --notification-bg: var(--s-accent);
+    --notification-text: var(--s-on-accent);
+    --footer-bg: var(--s-surface);
+    --footer-text: var(--s-muted);
+    --caret-color: var(--s-accent);
+    /* raw palette values some rules use directly */
+    --dark-nav-link-color: var(--s-accent);
+    --dark-header-text: var(--s-on-accent);
+    --dark-text-color: var(--s-fg);
+    --dark-link-color: var(--s-border);
+    --dark-section-shadow: transparent;
+    --light-link-color: var(--s-accent);
+    --aws-orange: var(--s-warn-text);
+    --neon-pink-glow: none;
+    --neon-cyan-glow: none;
+    --neon-blue-glow: none;
+    --neon-orange-glow: none;
+    font-family: var(--s-font-body);
+    font-size: 16px;
+    background-image: var(--s-texture), var(--s-bg-image);
+    background-size: var(--s-bg-size, auto);
+    background-attachment: fixed;
+  }
+  body[data-style] h1, body[data-style] h2, body[data-style] h3 {
+    font-family: var(--s-font-head);
+    font-weight: var(--s-head-weight);
+    text-transform: var(--s-head-transform);
+    letter-spacing: var(--s-head-tracking);
+  }
+  body[data-style] header h1 { font-size: 2.4em; color: var(--s-heading-text); }
+  body[data-style] h2 { font-size: 1.55em; color: var(--s-heading-text); }
+  body[data-style] header { border-bottom: var(--s-border-w) solid var(--s-border); }
+  body[data-style] footer { border-top: var(--s-border-w) solid var(--s-border); }
+  body[data-style] section,
+  body[data-style] .skill-category,
+  body[data-style] .modal-content,
+  .js body[data-style] .detail-text,
+  body[data-style] .notification {
+    border-radius: var(--s-radius);
+    border: var(--s-border-w) solid var(--s-border);
+    box-shadow: var(--s-shadow);
+  }
+  body[data-style] .intro-section { border-color: var(--s-accent); }
+  body[data-style] nav a { border-radius: var(--s-radius-sm); }
+  body[data-style] nav a:hover { color: var(--s-on-accent); }
+  body[data-style] .skill-category li { border-radius: var(--s-radius-pill); border-color: var(--s-border); color: var(--s-fg); }
+  body[data-style] .skill-category li:hover,
+  body[data-style] .skill-category li:focus-within { color: var(--s-on-accent); box-shadow: none; }
+  body[data-style] .modal-name,
+  body[data-style] .aws-text { animation: none; text-shadow: none; }
+  body[data-style] .modal-name { color: var(--s-heading-text); }
+  body[data-style] :focus-visible { outline-color: var(--s-focus-ring, var(--s-accent)); }
+}
+
+/* The picker (all looks, original included) */
+.style-pick { display: flex; align-items: center; justify-content: center; gap: 0.5rem; margin-top: 1rem; }
+.style-pick:has(select:empty) { display: none; }
+.style-pick label { color: var(--header-text); font-size: 1em; text-shadow: var(--neon-cyan-glow); }
+body.light-mode .style-pick label { text-shadow: none; }
+.style-pick select {
+  font: inherit; font-size: 0.95em; cursor: pointer; max-width: 16rem;
+  color: var(--header-text); background-color: var(--header-bg);
+  border: 2px solid var(--heading-border); border-radius: 0; padding: 0.2rem 0.5rem;
+}
+body.light-mode .style-pick select { border-radius: 5px; }
+body[data-style] .style-pick select { border: var(--s-border-w) solid var(--s-border); border-radius: var(--s-radius-sm); background-color: var(--s-surface-2); color: var(--s-fg); }
+.style-pick select:focus-visible { outline: 2px solid var(--header-text); outline-offset: 3px; }
+@media print { .style-pick { display: none !important; } }

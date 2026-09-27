@@ -1,4 +1,4 @@
-// Theme persistence, footer year, looping typing animations, progressive
+// Footer year, looping typing animations, progressive
 // section reveal, hover/pinned detail toggles, click notifications, and
 // native QR/résumé dialog wiring.
 //
@@ -19,48 +19,7 @@
         document.documentElement.classList.toggle('motion-enabled', !reduced);
     }
 
-    // ------------------------------------------------------------------
-    // Theme switch
-    // ------------------------------------------------------------------
-    function readStoredTheme() {
-        try {
-            return localStorage.getItem('theme');
-        } catch (err) {
-            return null; // Storage disabled/blocked (e.g. SecurityError) — fall back silently.
-        }
-    }
-
-    function writeStoredTheme(value) {
-        try {
-            localStorage.setItem('theme', value);
-        } catch (err) {
-            // Ignore — theme still applies for this page view, just isn't persisted.
-        }
-    }
-
-    var themeToggle = document.getElementById('checkbox');
-    var themeLabel = document.getElementById('theme-label');
-
-    function updateThemeLabel(theme) {
-        if (themeLabel) {
-            themeLabel.textContent = theme === 'light' ? 'Toggle Dark Mode' : 'Toggle Light Mode';
-        }
-    }
-
-    if (themeToggle) {
-        var storedTheme = readStoredTheme() || 'dark'; // Default to dark.
-        var isLight = storedTheme === 'light';
-        document.body.classList.toggle('light-mode', isLight);
-        themeToggle.checked = isLight;
-        updateThemeLabel(storedTheme);
-
-        themeToggle.addEventListener('change', function () {
-            var newTheme = themeToggle.checked ? 'light' : 'dark';
-            document.body.classList.toggle('light-mode', themeToggle.checked);
-            writeStoredTheme(newTheme);
-            updateThemeLabel(newTheme);
-        });
-    }
+    // Theme: handled by style-kit/picker.js (loaded first in <body>).
 
     // ------------------------------------------------------------------
     // Footer year

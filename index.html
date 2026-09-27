@@ -49,8 +49,11 @@
     }
     </script>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style-kit/tokens.css?v=1">
+    <link rel="stylesheet" href="style-kit/map.css?v=1">
 </head>
 <body>
+    <script src="style-kit/picker.js?v=1" data-original-dark="Original synthwave (dark)" data-original-light="Original blue/green (light)"></script>
     <a class="skip-link" href="#main-content">Skip to main content</a>
     <header>
         <h1>Aditya Indoori</h1>
@@ -66,13 +69,7 @@
             <a href="#contact">Contact</a>
             <a href="Aditya_Indoori_Resume.pdf" id="resume-link" aria-haspopup="dialog">Resume</a>
         </nav>
-        <div class="theme-switch-wrapper">
-            <label class="theme-switch" for="checkbox">
-                <input type="checkbox" id="checkbox" aria-label="Light mode">
-                <span class="slider round" aria-hidden="true"></span>
-            </label>
-            <span id="theme-label">Toggle Light Mode</span>
-        </div>
+        <div class="style-pick"><label for="style-pick">Style</label><select id="style-pick" data-style-picker aria-label="Page style"></select></div>
     </header>
 
     <main id="main-content" tabindex="-1">
